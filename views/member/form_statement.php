@@ -62,10 +62,10 @@
                                    
                                         <div class="box-body" style="background-color: #fff;">
                                         
-                                        
-                                            <div class="col-md-12"  style="background-color: #fff;">
+                                        <div class="row">
+                                        <div class="col-md-12"  style="background-color: #fff;">
                                                 <div class="col-md-9">
-                                                    <div class="form-group">
+                                                    <!-- <div class="form-group">
                                                          <div>
                                                             <input class="untukInput1" type="text" size="100" placeholder="Nama " name="$i_name" value="<?= $row->member_name ?>" />
                                                         </div>
@@ -81,7 +81,7 @@
                                                         <div>
                                                             <input class="untukInput1" type="text" size="100" placeholder="Alamat" name="$i_alamat" value="<?= $row->member_alamat ?>" />
                                                         </div><br>
-                                                    </div>
+                                                    </div> -->
 
                                                     <div class="form-group" style="color: #000;">
                                                         <div>
@@ -148,9 +148,9 @@
                                                     </div> 
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <div style="margin-bottom: 70%;">
+                                                    <!-- <div style="margin-bottom: 70%;">
                                                         <center><img src=".."></center>
-                                                    </div>
+                                                    </div> -->
                                                     <div id="tekanan">
                                                         <input type="checkbox" value="1" id="tekanan_on" name="i_tekanan" class="form-check" 
                                                         <?php if ($r_statement->tekanan==1){echo "Checked";}?>
@@ -290,6 +290,9 @@
                                                 
                                                 
                                             </div>
+
+                                        </div> <!-- row -->
+
                             
                                     </div><!-- /.box -->
                             </form>
