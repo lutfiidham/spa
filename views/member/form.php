@@ -32,6 +32,7 @@ function add_menu(id)
                           <div class="title_page"> <?= $title ?></div>
                             <div class="box box-cokelat">
                                 <div class="box-body">
+                                    <?php var_dump($row); ?>
                                         <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Nama </label>
@@ -48,7 +49,7 @@ function add_menu(id)
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-calendar"></i>
                                                 </div>
-                                               <input required min="0" type="text" id="date_picker1" name="i_datebirth" class="form-control" placeholder="Masukkan tanggal lahir member..." value="<?= $row->member_dateofbirth ?>"/>
+                                               <input required min="0" type="text" id="date_picker1" name="i_datebirth" class="form-control" placeholder="Masukkan tanggal lahir member..." value="<?= format_date($row->member_dateofbirth) ?>"/>
                                            </div>
                                         </div>
                                         <div class="form-group">

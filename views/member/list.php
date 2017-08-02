@@ -70,7 +70,7 @@
                                                 <tr>
                                                     <td><?= $no?></td>
                                                     <td><?= $row['member_name']?></td>
-                                                    <td><?= $row['member_dateofbirth']?></td>
+                                                    <td><?= format_date($row['member_dateofbirth'])?></td>
                                                     <td><?= $row['member_phone']?></td>
                                                     <td><?= $row['member_alamat']?></td>
                                                     <td><?= $row['member_email']?></td>

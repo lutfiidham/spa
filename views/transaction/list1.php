@@ -23,14 +23,13 @@
 					<div id="" class="panel panel-default panel-item">
 						<div class="row">
 							<table id="table_item" class="table my-item" style="font-size: 12px;">
-			                      <thead>
+		                      <thead>
 			                       <tr>
 	 								<th width="5%">No.</th>
-		                          	<th width="50%">Invoice</th>
 		                          	<th class="">Nama</th>
-		                          	<th class="">Tanggal</th>
-		                          	<th class="">Jam</th>
-		                          	<th class="">Harga</th>
+		                          	<th class="">Pemijat</th>
+		                          	<th class="">Pijat</th>
+		                          	<th class="">Ruangan</th>
 		                        </tr>
 		                      </thead>
 		                      <tbody class="" id="data_items" class="scrollable">
@@ -46,14 +45,12 @@
 					<div id="" class="panel panel-default panel-item">
 						<div class="row">
 							<table id="table_item" class="table my-item" style="font-size: 12px;">
-			                      <thead>
+			                    <thead>
 			                        <tr>
 	 								<th width="5%">No.</th>
-		                          	<th width="50%">Invoice</th>
 		                          	<th class="">Nama</th>
-		                          	<th class="">Tanggal</th>
 		                          	<th class="">Jam</th>
-		                          	<th class="">Harga</th>
+		                          	<th class="">Pemijat</th>
 		                        </tr>
 		                      </thead>
 		                      <tbody class="" id="data_items" class="scrollable">

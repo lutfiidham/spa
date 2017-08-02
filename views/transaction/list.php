@@ -108,13 +108,19 @@
 							</div>
 							</div>
 
+							<!-- untuk Append -->
+							<div class="row">
+								<div class="col-md-12">
+								<h4>Pelanggan 1 :</h4>
+								</div>
+							</div>
 							<div class="row">
 								<div class="col-md-3">
 									<div class="form-group">
 										<label for="">Nama : </label>
 										<div class="input-group">
 											<input type="text" required class="form-control pull-right number"
-											id="i_notelp" name="n_notelp" value=""/>
+											id="i_notelp_" name="n_notelp_" value=""/>
 										</div><!-- /.input group -->
 									</div>
 								</div>
@@ -122,7 +128,7 @@
 								<div class="col-md-3">
 									<div class="form-group">
 										<label for="">Pemijat :</label>
-										<select class="selectpicker form-control normal select2" id="pemijat" name="i_pemijat" required>
+										<select class="selectpicker form-control normal select2" id="i_pemijat_" name="n_pemijat_" required>
 										<option value="">- Pilih Pemijat -</option>
 											<?php while ($r_pemijat = mysql_fetch_array($q_pemijat)) {?>
 												<option value="<?= $r_pemijat['pemijat_id']?>"
@@ -134,6 +140,8 @@
 								</div>
 							
 							</div>
+
+							<!-- End Append -->
 
 								
 

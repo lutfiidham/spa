@@ -32,7 +32,7 @@ switch ($page) {
 			$row = read_id($id);
 			$where_member_id = "where member_id = '$id'";
 			$r_statement = select_object_config('statement', $where_member_id);
-			
+
 			$action = "member.php?page=edit&id=$id"; 
 
 			$check_statement = select_config_by('statement', 'count(*)', $where_member_id);
@@ -72,9 +72,9 @@ switch ($page) {
 
 			$row->member_name = false;
 			$row->member_phone = false;
+			$row->member_dateofbirth = false;
 			$row->member_alamat = false;
 			$row->member_email = false;
-			
 			$action = "member.php?page=save";
 		}
 		include '../views/member/form.php';
