@@ -32,7 +32,6 @@ function add_menu(id)
                           <div class="title_page"> <?= $title ?></div>
                             <div class="box box-cokelat">
                                 <div class="box-body">
-                                    <?php var_dump($row); ?>
                                         <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Nama </label>
