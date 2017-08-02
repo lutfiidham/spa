@@ -125,14 +125,17 @@ function get_isset($data){
 }
 
 function format_date($date){
-	if($date == "0000-00-00"){
-		return "-";
-	}else{
-		$date = explode("-", $date);
-		$new_date = $date[2]."/".$date[1]."/".$date[0];
+	if ($date) {
+			if($date == "0000-00-00"){
+				return "-";
+			}else{
+				$date = explode("-", $date);
+				$new_date = $date[2]."/".$date[1]."/".$date[0];
 
-		return $new_date;
+				return $new_date;
+			}
 	}
+
 
 }
 
