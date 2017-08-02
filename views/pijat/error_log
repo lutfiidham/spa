@@ -1,0 +1,68 @@
+[24-Jul-2017 22:59:20 America/Chicago] PHP Notice:  Undefined index: term in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 2
+[24-Jul-2017 22:59:20 America/Chicago] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, string given in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 5
+[24-Jul-2017 22:59:20 America/Chicago] PHP Warning:  mysql_query(): Access denied for user 'jasasoft'@'localhost' (using password: NO) in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 5
+[24-Jul-2017 22:59:20 America/Chicago] PHP Warning:  mysql_query(): A link to the server could not be established in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 5
+[24-Jul-2017 22:59:20 America/Chicago] PHP Warning:  mysql_query(): Access denied for user 'jasasoft'@'localhost' (using password: NO) in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 7
+[24-Jul-2017 22:59:20 America/Chicago] PHP Warning:  mysql_query(): A link to the server could not be established in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 7
+[24-Jul-2017 22:59:20 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 9
+[24-Jul-2017 23:05:44 America/Chicago] PHP Notice:  Undefined index: term in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 2
+[24-Jul-2017 23:05:44 America/Chicago] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, string given in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 7
+[24-Jul-2017 23:07:09 America/Chicago] PHP Notice:  Undefined index: term in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 2
+[24-Jul-2017 23:07:09 America/Chicago] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, string given in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 7
+[24-Jul-2017 23:08:12 America/Chicago] PHP Notice:  Undefined index: term in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 2
+[24-Jul-2017 23:08:12 America/Chicago] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, string given in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 5
+[24-Jul-2017 23:08:12 America/Chicago] PHP Warning:  mysql_query(): Access denied for user 'jasasoft'@'localhost' (using password: NO) in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 5
+[24-Jul-2017 23:08:12 America/Chicago] PHP Warning:  mysql_query(): A link to the server could not be established in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 5
+[24-Jul-2017 23:08:12 America/Chicago] PHP Warning:  mysql_query(): Access denied for user 'jasasoft'@'localhost' (using password: NO) in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 7
+[24-Jul-2017 23:08:12 America/Chicago] PHP Warning:  mysql_query(): A link to the server could not be established in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 7
+[24-Jul-2017 23:08:12 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 9
+[24-Jul-2017 23:08:37 America/Chicago] PHP Notice:  Undefined index: term in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 2
+[24-Jul-2017 23:08:37 America/Chicago] PHP Warning:  mysql_fetch_assoc() expects parameter 1 to be resource, string given in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 7
+[24-Jul-2017 23:09:12 America/Chicago] PHP Notice:  Undefined index: term in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 2
+[24-Jul-2017 23:09:12 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, string given in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 7
+[24-Jul-2017 23:31:39 America/Chicago] PHP Notice:  Undefined index: term in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 2
+[24-Jul-2017 23:31:39 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, string given in /home/jasasoft/public_html/spa/views/pijat/get_satuan.php on line 7
+[25-Jul-2017 23:46:27 America/Chicago] PHP Notice:  Undefined variable: pijat_name in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 3
+[25-Jul-2017 23:46:27 America/Chicago] PHP Notice:  Undefined variable: action in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 5
+[25-Jul-2017 23:46:27 America/Chicago] PHP Notice:  Undefined variable: id in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 9
+[25-Jul-2017 23:46:27 America/Chicago] PHP Notice:  Undefined variable: q_item in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 12
+[25-Jul-2017 23:46:27 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 12
+[25-Jul-2017 23:46:27 America/Chicago] PHP Notice:  Undefined variable: id in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 20
+[25-Jul-2017 23:46:27 America/Chicago] PHP Notice:  Undefined variable: row in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 29
+[25-Jul-2017 23:46:27 America/Chicago] PHP Notice:  Trying to get property of non-object in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 29
+[25-Jul-2017 23:47:58 America/Chicago] PHP Notice:  Undefined variable: pijat_name in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 3
+[25-Jul-2017 23:47:58 America/Chicago] PHP Notice:  Undefined variable: action in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 5
+[25-Jul-2017 23:47:58 America/Chicago] PHP Notice:  Undefined variable: id in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 9
+[25-Jul-2017 23:47:58 America/Chicago] PHP Warning:  mysql_query(): Access denied for user 'jasasoft'@'localhost' (using password: NO) in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 14
+[25-Jul-2017 23:47:58 America/Chicago] PHP Warning:  mysql_query(): A link to the server could not be established in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 14
+[25-Jul-2017 23:47:58 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 15
+[25-Jul-2017 23:47:58 America/Chicago] PHP Notice:  Undefined variable: id in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 23
+[25-Jul-2017 23:47:58 America/Chicago] PHP Notice:  Undefined variable: row in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 32
+[25-Jul-2017 23:47:58 America/Chicago] PHP Notice:  Trying to get property of non-object in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 32
+[25-Jul-2017 23:48:03 America/Chicago] PHP Notice:  Undefined variable: pijat_name in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 3
+[25-Jul-2017 23:48:03 America/Chicago] PHP Notice:  Undefined variable: action in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 5
+[25-Jul-2017 23:48:03 America/Chicago] PHP Notice:  Undefined variable: id in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 9
+[25-Jul-2017 23:48:03 America/Chicago] PHP Warning:  mysql_query(): Access denied for user 'jasasoft'@'localhost' (using password: NO) in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 14
+[25-Jul-2017 23:48:03 America/Chicago] PHP Warning:  mysql_query(): A link to the server could not be established in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 14
+[25-Jul-2017 23:48:03 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 15
+[25-Jul-2017 23:48:03 America/Chicago] PHP Notice:  Undefined variable: id in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 23
+[25-Jul-2017 23:48:03 America/Chicago] PHP Notice:  Undefined variable: row in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 32
+[25-Jul-2017 23:48:03 America/Chicago] PHP Notice:  Trying to get property of non-object in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 32
+[25-Jul-2017 23:48:23 America/Chicago] PHP Notice:  Undefined variable: pijat_name in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 3
+[25-Jul-2017 23:48:23 America/Chicago] PHP Notice:  Undefined variable: action in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 5
+[25-Jul-2017 23:48:23 America/Chicago] PHP Notice:  Undefined variable: id in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 9
+[25-Jul-2017 23:48:23 America/Chicago] PHP Notice:  Undefined variable: id in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 25
+[25-Jul-2017 23:48:23 America/Chicago] PHP Notice:  Undefined variable: row in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 34
+[25-Jul-2017 23:48:23 America/Chicago] PHP Notice:  Trying to get property of non-object in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 34
+[25-Jul-2017 23:49:51 America/Chicago] PHP Notice:  Undefined variable: pijat_name in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 4
+[25-Jul-2017 23:49:51 America/Chicago] PHP Notice:  Undefined variable: action in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 6
+[25-Jul-2017 23:49:51 America/Chicago] PHP Notice:  Undefined variable: id in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 10
+[25-Jul-2017 23:49:51 America/Chicago] PHP Notice:  Undefined variable: id in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 26
+[25-Jul-2017 23:49:51 America/Chicago] PHP Notice:  Undefined variable: row in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 35
+[25-Jul-2017 23:49:51 America/Chicago] PHP Notice:  Trying to get property of non-object in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 35
+[25-Jul-2017 23:50:20 America/Chicago] PHP Notice:  Undefined variable: pijat_name in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 4
+[25-Jul-2017 23:50:20 America/Chicago] PHP Notice:  Undefined variable: action in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 6
+[25-Jul-2017 23:50:20 America/Chicago] PHP Notice:  Undefined variable: id in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 10
+[25-Jul-2017 23:50:20 America/Chicago] PHP Notice:  Undefined variable: id in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 26
+[25-Jul-2017 23:50:20 America/Chicago] PHP Notice:  Undefined variable: row in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 35
+[25-Jul-2017 23:50:20 America/Chicago] PHP Notice:  Trying to get property of non-object in /home/jasasoft/public_html/spa/views/pijat/popmodal_add_item.php on line 35
