@@ -206,6 +206,7 @@ switch ($page) {
 							'satuan_name' => $r_satuan_item['satuan_name']
 							);
 		}
+    // var_dump($q_satuan_item);
 		// // var_dump($data);
 		echo json_encode($data);
 		break;
