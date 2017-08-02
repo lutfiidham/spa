@@ -25,11 +25,26 @@
 									</div><!-- /.input group -->
 								</div>
 							</div>
+
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="">Jam : </label>
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-clock-o"></i>
+										</div>
+										<input type="text" required class="form-control pull-right normal clockpicker "
+										id="clock_picker1" name="i_clock" value="<?php echo date("G:i"); ?>"/>
+									</div><!-- /.input group -->
+								</div>
+							</div>
+
 							<div class="col-md-3">
 								<div class="form-group">
 									<label for="">Member :</label>
-									<select name="i_member" size="1" class="selectpicker form-control normal" id="member" required>
+									<select name="i_member" size="1" class="selectpicker form-control normal select2" id="member" required>
 		                      <option value="">- Pilih Member -</option>
+		                      <option value="0">Non Member</option>
 		                      <?php
 		                      while($r_member = mysql_fetch_array($q_member)){
 		                      ?>
@@ -46,7 +61,7 @@
 							<div class="col-md-3">
 								<div class="form-group">
 									<label for="">Cabang :</label>
-									<select class="selectpicker form-control normal" id="cabang" name="i_branch" required>
+									<select class="selectpicker form-control normal select2" id="cabang" name="i_branch" required>
 									<option value="">- Pilih Cabang -</option>
 										<?php while ($r_branch = mysql_fetch_array($q_branch)) {?>
 											<option value="<?= $r_branch['branch_id']?>"
@@ -56,19 +71,75 @@
 									</select>
 								</div>
 							</div>
+
+						</div>
+						<div class="col-md-12">
 							<div class="col-md-3">
 								<div class="form-group">
-									<label for="">Pemijat :</label>
-									<select class="selectpicker form-control normal" id="pemijat" name="i_pemijat" required>
-									<option value="">- Pilih Pemijat -</option>
-										<?php while ($r_pemijat = mysql_fetch_array($q_pemijat)) {?>
-											<option value="<?= $r_pemijat['pemijat_id']?>"
-												<?php if ($pemijat_id = $r_branch['pemijat_id']){echo "selected";}?>>
-												<?= $r_pemijat['pemijat_name']?></option>
-										<? } ?>
-									</select>
+									<label for="">No Telepon : </label>
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-phone"></i>
+										</div>
+										<input type="text" required class="form-control pull-right number"
+										id="i_notelp" name="n_notelp" value=""/>
+									</div><!-- /.input group -->
 								</div>
 							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="">Banyak Orang : </label>
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-users"></i>
+										</div>
+									<select class="selectpicker form-control normal select2" id="i_qty" name="n_qty" required>
+									<option value="">- Input Jumlah-</option>
+										<?php for ($i=1; $i < 11; $i++) {?> 
+											<option value="<?php echo $i; ?>"><?php echo $i; ?> orang</option>
+										<?php } ?>
+									</select>
+									</div><!-- /.input group -->
+								</div>
+							</div>
+
+							<div class="col-md-3">
+								<button class="btn btn-success" id="btnLanjut">Lanjut</button>
+							</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-3">
+									<div class="form-group">
+										<label for="">Nama : </label>
+										<div class="input-group">
+											<input type="text" required class="form-control pull-right number"
+											id="i_notelp" name="n_notelp" value=""/>
+										</div><!-- /.input group -->
+									</div>
+								</div>
+
+								<div class="col-md-3">
+									<div class="form-group">
+										<label for="">Pemijat :</label>
+										<select class="selectpicker form-control normal select2" id="pemijat" name="i_pemijat" required>
+										<option value="">- Pilih Pemijat -</option>
+											<?php while ($r_pemijat = mysql_fetch_array($q_pemijat)) {?>
+												<option value="<?= $r_pemijat['pemijat_id']?>"
+													<?php if ($pemijat_id = $r_branch['pemijat_id']){echo "selected";}?>>
+													<?= $r_pemijat['pemijat_name']?></option>
+											<? } ?>
+										</select>
+									</div>
+								</div>
+							
+							</div>
+
+								
+
+							</div>
+
+							
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
@@ -170,6 +241,11 @@
 	</div>
 </section>
 <script type="text/javascript">
+
+	$( "#btnLanjut" ).click(function() {
+	  var jml = $("#i_qty").val();
+	  var html = ''
+	});
 
 	function set_harga() {
 		var i_pijat = $('#i_pijat').val();
@@ -525,17 +601,28 @@ $(document).ready(function(){
 
 <script>
 	$(document).ready(function () {
-		$("#member").select2({
+		$(".select2").select2({
 			placeholder: "Please Select"
 		});
-		$("#cabang").select2({
-			placeholder: "Please Select"
-		});
-		$("#pijat").select2({
-			placeholder: "Please Select"
-		});
-		$("#pemijat").select2({
-			placeholder: "Please Select"
-		});
+		// $("#cabang").select2({
+		// 	placeholder: "Please Select"
+		// });
+		// $("#pijat").select2({
+		// 	placeholder: "Please Select"
+		// });
+		// $("#pemijat").select2({
+		// 	placeholder: "Please Select"
+		// });
+	});
+
+</script>
+
+<script type="text/javascript">
+	$('.clockpicker').clockpicker({
+		placement: 'bottom',
+    align: 'left',
+    donetext: 'Pilih',
+    autoclose: true,
+    'default': 'now'
 	});
 </script>

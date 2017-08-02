@@ -47,7 +47,9 @@ if(!$_SESSION['login']){
        <!-- responsive -->
 	     <link href="../css/responsive/layout.css" rel="stylesheet">
        <!-- Select 2 -->
-	     <link href="../select2/dist/css/select2.min.css" rel="stylesheet">
+         <link href="../select2/dist/css/select2.min.css" rel="stylesheet">
+         <link href="../assets/clock-picker/bootstrap-clockpicker.min.css" rel="stylesheet">
+	     <link href="../assets/clock-picker/jquery-clockpicker.min.css" rel="stylesheet">
        <?php
        $q_img = mysql_query("select office_img as result from office");
        $r_img = mysql_fetch_array($q_img);
@@ -57,6 +59,8 @@ if(!$_SESSION['login']){
         <script src="../js/chart/Chart.js" type="text/javascript"></script>
         <script src="../js/jquery.js"></script>
         <script src="../js/jquery-ui.js"></script>
+        <script src="../assets/clock-picker/bootstrap-clockpicker.min.js"></script>
+        <script src="../assets/clock-picker/jquery-clockpicker.min.js"></script>
         <script type="text/javascript">
 
         $(function(){

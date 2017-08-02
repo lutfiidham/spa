@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("Asia/Jakarta");
 ob_start();
 session_start();
 $con = mysql_connect("localhost","root","");
