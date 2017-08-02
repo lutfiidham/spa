@@ -63,7 +63,8 @@ switch ($page) {
 			$data = "'',
 					
 					'$i_name',
-					'$i_branch_id'
+					'$i_branch_id',
+					'1'
 					
 			";
 			
