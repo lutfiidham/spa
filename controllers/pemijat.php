@@ -39,6 +39,7 @@ switch ($page) {
 			$row->pemijat_dateofbirth = false;
 			$row->pemijat_phone = false;
 			$row->pemijat_alamat = false;
+			$row->pemijat_available = '1';
 
 			$action = "pemijat.php?page=save";
 		}
@@ -61,7 +62,8 @@ switch ($page) {
 					'$i_name',
 					'$newdate',
 					'$i_phone',
-					'$i_address'
+					'$i_address',
+					'1'
 			";
 
 			//echo $data;
