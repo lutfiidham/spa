@@ -459,7 +459,7 @@ $pdf->Output('Statement.php', 'I');
 	<tr>
 		<td> Date of Birth </td>
 		<td> : </td>
-		<td> <?php echo $r_member_statement['member_dateofbirth']; ?> </td>
+		<td> <?php echo format_date($r_member_statement['member_dateofbirth']); ?> </td>
 	</tr>
 	<tr>
 		<td> Address </td>
@@ -481,6 +481,7 @@ $pdf->Output('Statement.php', 'I');
 <table class="table table-bordered table-striped"><br /><br /><br />
 <?php
 $cek_darahtinggi = get_statement('tekanan', $statement_id);
+
 if($cek_darahtinggi == 1)
 {
 ?>
@@ -493,6 +494,7 @@ if($cek_darahtinggi == 1)
 }
 ?><?php
 $cek_asma = get_statement('asma', $statement_id);
+
 if($cek_asma == 1)
 {
 ?>

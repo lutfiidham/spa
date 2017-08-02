@@ -78,6 +78,7 @@ switch ($page) {
         	$q_member_statement = select_member_statement($statement_id);
  			$r_member_statement = mysql_fetch_array($q_member_statement);
         	// echo $statement_id;
+        	// var_dump($r_member_statement);
         	include '../views/print/statement.php';
         	break;
 }

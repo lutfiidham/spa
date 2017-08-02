@@ -62,7 +62,7 @@ function graph($start, $end){
 
 function get_statement($column, $id)
 {
-	$query = mysql_query("select $column as result from statement WHERE statement_id = '$id'");
+	$query = mysql_query("select $column as result from statement WHERE member_id = '$id'");
 
 	$row = mysql_fetch_array($query);
 	$result = $row['result'];
@@ -70,7 +70,7 @@ function get_statement($column, $id)
 }
 
 function select_member_statement($statement_id){
-	$query = mysql_query("SELECT a.*, b.member_name,c.member_email,d.member_phone,e.member_alamat, f.member_id FROM statement a
+	$query = mysql_query("SELECT a.*, b.member_name, b.member_dateofbirth,c.member_email,d.member_phone,e.member_alamat, f.member_id FROM statement a
 
 						 LEFT JOIN members b ON b.member_id = a.member_id
 						 LEFT JOIN members c ON c.member_id = a.member_id
