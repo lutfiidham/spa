@@ -118,7 +118,9 @@ switch ($page) {
     		}
 
         $q_member = select_config('members', '');
+        $where = "available = '1'";
         $q_pemijat = select_config('pemijat', '');
+
     		$q_branch = select_config('branches','');
 
         $q_pijat = select_config('pijat', '');

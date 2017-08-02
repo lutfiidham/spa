@@ -24,8 +24,9 @@ function delete_config($table, $param){
 }
 
 function select_config($table, $where){
-	$query = mysql_query("SELECT * FROM $table $where");
-	return $query;
+	$query = "SELECT * FROM $table $where";
+	$queryr = mysql_query($query);
+	return $queryr;
 }
 
 function select_object_config($table, $where){

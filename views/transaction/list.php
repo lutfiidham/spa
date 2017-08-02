@@ -130,11 +130,22 @@
 										<label for="">Pemijat :</label>
 										<select class="selectpicker form-control normal select2" id="i_pemijat_" name="n_pemijat_" required>
 										<option value="">- Pilih Pemijat -</option>
-											<?php while ($r_pemijat = mysql_fetch_array($q_pemijat)) {?>
-												<option value="<?= $r_pemijat['pemijat_id']?>"
+											<?php while ($r_pemijat = mysql_fetch_array($q_pemijat)) {
+												if ($r_pemijat['available']=='0') {
+												?>
+												<option disabled="disabled" value="<?= $r_pemijat['pemijat_id']?>"
+													<?php if ($pemijat_id = $r_branch['pemijat_id']){echo "selected";}?>>
+													<?= $r_pemijat['pemijat_name']?>
+														<!-- jika tidak available -->
+													
+											<? }else{ ?>
+													</option><option value="<?= $r_pemijat['pemijat_id']?>"
 													<?php if ($pemijat_id = $r_branch['pemijat_id']){echo "selected";}?>>
 													<?= $r_pemijat['pemijat_name']?></option>
-											<? } ?>
+														<!-- jika available -->
+
+											<? }
+											} ?>
 										</select>
 									</div>
 								</div>

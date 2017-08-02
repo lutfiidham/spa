@@ -12,7 +12,8 @@ function select_config_by($table, $obj, $where){
 }
 
 function select_config($table, $where){
-	$query = mysql_query("SELECT * FROM $table $where");
-	return $query;
+	$query = "SELECT * FROM $table $where";
+	$queryr = mysql_query($query);
+	return $queryr;
 }
  ?>
