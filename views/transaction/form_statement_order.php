@@ -29,113 +29,28 @@
 
 <!-- Content Header (Page header) -->
         
+<div class="row">
+                        <!-- right column -->
+                      
 
                 <!-- Main content -->
                 <section class="content">
-                    <div class="row">
-                      
-                        <!-- right column -->
-                        <div class="col-md-12">
-                            <!-- general form elements disabled -->
-
-                          
-                          <!-- <div class="title_page"> <?= $title ?></div> -->
-                             <form action="<?= $action_statement?>" method="post" enctype="multipart/form-data" role="form">
-
-                                    <div class="box box-cokelat">
-                                    
-                                   
-                                        <div class="box-body" style="background-color: #fff;">
+                        <div class="row">
+                            <div class="col-md-12">
+                <div class="box box-cokelat">
+                    <div class="box-body" style="background-color: brown;">
                                         
-                                        <div class="row">
-                                        <div class="col-md-12"  style="background-color: #fff;">
-                                                <div class="col-md-9">
-                                                    <!-- <div class="form-group">
-                                                         <div>
-                                                            <input class="untukInput1" type="text" size="100" placeholder="Nama " name="$i_name" value="<?= $row->member_name ?>" />
-                                                        </div>
-                                                        <br>
-                                                        <div>
-                                                            <input class="untukInput1" type="text" size="100" placeholder="Email" name="$i_email" value="<?= $row->member_email ?>" />
-                                                        </div>
-                                                        <br>
-                                                        <div>
-                                                            <input class="untukInput1" type="text" size="100" placeholder="Phone" name="$i_phone" value="<?= $row->member_phone ?>" />
-                                                        </div>
-                                                        <br>
-                                                        <div>
-                                                            <input class="untukInput1" type="text" size="100" placeholder="Alamat" name="$i_alamat" value="<?= $row->member_alamat ?>" />
-                                                        </div><br>
-                                                    </div> -->
+                    <div class="container">
+                            <form action="<?= $action_statement?>" method="post" enctype="multipart/form-data" role="form">
+                                
+                            <!-- tabel -->
 
-                                                    <div class="form-group" style="color: #000;">
-                                                        <div>
-                                                            <label>Apakah anda mempunyai atau pernah mempunyai masalah tekanan darah tinggi ?</label>
-                                                        </div>
-                                                        <div>
-                                                            <label>Apakah anda menderita asma?</label> 
-                                                        </div>
-                                                        <div>
-                                                            <label>Jika ya, apakah anda perlu menggunakan inhaler saat perawatan berlangsung?</label>
-                                                        </div>
-                                                         <div>
-                                                            <label>Apakah anda sedang mengalami masalah leher dan punggung?</label>
-                                                        </div>
-                                                         <div>
-                                                            <label>Apakah anda sedang memiliki masalah kulit, luka, cedera, atau infeksi?</label>
-                                                        </div>
-                                                        <div>
-                                                            <input class="untukInput1" type="text" size="100" placeholder="Jika ya, Tolong Jabarkan" name="i_kulit_jabarkan" value="<?=$r_statement->kulit_jabarkan?>" />
-                                                        </div>
-                                                        <br>
-                                                        <div>
-                                                            <label>Apakah anda memiliki masalah kesehatan selain yang telah disebutkan di atas dan perlu terapis anda ketahui?</label>
-                                                        </div>
-                                                        <div>
-                                                            <input class="untukInput1" type="text" size="100" placeholder="Jika ya, Tolong Jabarkan" name="i_selain_jabarkan" value="<?= $r_statement->selain_jabarkan?>" />
-                                                        </div>
-                                                        <br>
-                                                        <div>
-                                                            <label>Apakah anda memiliki alergi atau bahan-bahan tertentu yang dapat bereaksi terhadap kulit anda?</label>
-                                                        </div>
-                                                        <div>
-                                                            <input class="untukInput1" type="text" size="100" placeholder="Jika ya, Tolong Jabarkan" name="i_alergi_jabarkan" value="<?= $r_statement->alergi_jabarkan?>" />
-                                                        </div>
-                                                        <br>
-                                                        <div>
-                                                            <label>Apakah anda sedang hamil atau sedang merencanakan kehamilan?</label>
-                                                        </div>
-                                                        <div>
-                                                            <input class="untukInput1" type="text" size="100" placeholder="Jika ya, Berapa usia kandungan anda ?" name="i_usia_kandungan" value="<?= $r_statement->usia_kandungan?>" />
-                                                        </div>
-                                                        <br>
-                                                        <div>
-                                                            <label>Apakah anda menggunakan kontak lens?</label>
-                                                        </div>
-                                                        <div>
-                                                            <label>Jika ya, apakah anda perlu melepasnya sebelum perawatan wajah atau perawatan lainnya?</label>
-                                                        </div>
-                                                        <div>
-                                                            <label>Bagaimana level tekanan pijatan yang anda inginkan saat perawatan?</label>
-                                                        </div>
-                                                        <div>
-                                                            <label>Apakah anda ingin mendapatkan penawaran spesial kami melalui email atau pesan SMS/WA?</label>
-                                                        </div>
-                                                        <div>
-                                                            <label>Saya menyatakan bahwa jawaban yang berikan adalah benar</label>
-                                                        </div>
-                                                         <div id="menyembunyikan">
-                                                            <label>Saya tidak menyembunyikan informasi apapun yang mungkin relevan untuk menentukan bagaimana perawatan saya dilakukan</label>
-                                                        </div>
-                                                        <div id="menyembunyikan">
-                                                            <label>Saya mengetahui bahwa Zee Holistic Living tidak bertanggung jawab atas cedera atau keruskan setelah perawatan dilakukan</label>
-                                                        </div>
-                                                    </div> 
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <!-- <div style="margin-bottom: 70%;">
-                                                        <center><img src=".."></center>
-                                                    </div> -->
+                            <table border="1">
+                                            <tr>
+                                                <td>
+                                                    <label>Apakah anda mempunyai atau pernah mempunyai masalah tekanan darah tinggi ?</label>
+                                                </td>
+                                                <td>
                                                     <div id="tekanan">
                                                         <input type="checkbox" value="1" id="tekanan_on" name="i_tekanan" class="form-check" 
                                                         <?php if ($r_statement->tekanan==1){echo "Checked";}?>
@@ -143,7 +58,15 @@
                                                         <input type="checkbox" value="2" id="tekanan_off" name="i_tekanan" 
                                                         <?php if ($r_statement->tekanan==2){echo "Checked";}?>
                                                         class="form-check" style="margin-left: 17%;"> Tidak    
-                                                    </div>   
+                                                    </div> 
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>
+                                                    <label>Apakah anda menderita asma?</label> 
+                                                </td>
+                                                <td>
                                                     <div id="asma">
                                                         <input type="checkbox" value="1" id="asma_on" name="i_asma" class="form-check"  
                                                         <?php if ($r_statement->asma==1){echo "Checked";}?>
@@ -152,6 +75,14 @@
                                                         <?php if ($r_statement->asma==2){echo "Checked";}?>
                                                         style="margin-left: 17%;"/> Tidak
                                                     </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label>Jika ya, apakah anda perlu menggunakan inhaler saat perawatan berlangsung?</label>
+                                                </td>
+                                                <td>
                                                     <div id="inhaler">
                                                         <input type="checkbox" value="1" id="inhaler_on" name="i_inhaler" class="form-check" 
                                                         <?php if ($r_statement->inhaler==1){echo "Checked";}?>
@@ -160,6 +91,14 @@
                                                         <?php if ($r_statement->inhaler==2){echo "Checked";}?>
                                                         style="margin-left: 17%;" /> Tidak
                                                     </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label>Apakah anda sedang mengalami masalah leher dan punggung?</label>
+                                                </td>
+                                                <td>
                                                     <div id="leher">
                                                         <input type="checkbox" value="1" id="leher_on" name="i_leher" class="form-check" 
                                                         <?php if ($r_statement->leher==1){echo "Checked";}?>
@@ -168,7 +107,17 @@
                                                         <?php if ($r_statement->leher==2){echo "Checked";}?>
                                                         style="margin-left: 17%;" /> Tidak
                                                     </div>
+                                                </td>
+                                            </tr>
 
+                                            <tr>
+                                                <td>
+                                                    <label>Apakah anda sedang memiliki masalah kulit, luka, cedera, atau infeksi?</label>
+                                                    <div>
+                                                            <input class="untukInput1" type="text" size="100" placeholder="Jika ya, Tolong Jabarkan" name="i_kulit_jabarkan" value="<?=$r_statement->kulit_jabarkan?>" />
+                                                        </div>
+                                                </td>
+                                                <td>
                                                     <div id="kulit" style="margin-bottom: 16%;"> 
                                                         <input type="checkbox" value="1" id="kulit_on" name="i_kulit" class="form-check" 
                                                         <?php if ($r_statement->kulit==1){echo "Checked";}?>
@@ -177,6 +126,17 @@
                                                         <?php if ($r_statement->kulit==2){echo "Checked";}?>
                                                         style="margin-left: 17%;"/> Tidak
                                                     </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label>Apakah anda memiliki masalah kesehatan selain yang telah disebutkan di atas dan perlu terapis anda ketahui?</label>
+                                                    <div>
+                                                            <input class="untukInput1" type="text" size="100" placeholder="Jika ya, Tolong Jabarkan" name="i_selain_jabarkan" value="<?= $r_statement->selain_jabarkan?>" />
+                                                        </div>
+                                                </td>
+                                                <td>
                                                     <div id="selain" style="margin-bottom: 16%;">
                                                         <input type="checkbox" value="1" id="selain_on" name="i_selain" class="form-check"  
                                                         <?php if ($r_statement->selain_diatas==1){echo "Checked";}?>
@@ -185,6 +145,17 @@
                                                         <?php if ($r_statement->selain_diatas==2){echo "Checked";}?>
                                                         style="margin-left: 17%;" /> Tidak
                                                     </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label>Apakah anda memiliki alergi atau bahan-bahan tertentu yang dapat bereaksi terhadap kulit anda?</label>
+                                                    <div>
+                                                            <input class="untukInput1" type="text" size="100" placeholder="Jika ya, Tolong Jabarkan" name="i_alergi_jabarkan" value="<?= $r_statement->alergi_jabarkan?>" />
+                                                        </div>
+                                                </td>
+                                                <td>
                                                     <div id="alergi" style="margin-bottom: 5%;">
                                                         <input type="checkbox" value="1" id="alergi_on" name="i_alergi" class="form-check" 
                                                          <?php if ($r_statement->alergi==1){echo "Checked";}?>
@@ -193,6 +164,19 @@
                                                         <?php if ($r_statement->alergi==2){echo "Checked";}?>
                                                         style="margin-left: 17%;" /> Tidak
                                                     </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                            <label>Apakah anda sedang hamil atau sedang merencanakan kehamilan?</label>
+                                                        </div>
+                                                        <div>
+                                                            <input class="untukInput1" type="text" size="100" placeholder="Jika ya, Berapa usia kandungan anda ?" name="i_usia_kandungan" value="<?= $r_statement->usia_kandungan?>" />
+                                                        </div>
+                                                </td>
+                                                <td>
                                                     <div id="hamil" style="margin-bottom: 14%;">
                                                         <input type="checkbox" value="1" id="hamil_on" name="i_hamil" class="form-check" 
                                                         <?php if ($r_statement->hamil==1){echo "Checked";}?>
@@ -201,6 +185,14 @@
                                                         <?php if ($r_statement->hamil==2){echo "Checked";}?>
                                                         style="margin-left: 17%;"/> Tidak
                                                     </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label>Apakah anda menggunakan kontak lens?</label>
+                                                </td>
+                                                <td>
                                                     <div  id="lens">
                                                         <input type="checkbox" value="1" id="lens_on" name="i_lens" class="form-check" 
                                                         <?php if ($r_statement->kontak_lens==1){echo "Checked";}?>
@@ -209,6 +201,15 @@
                                                         <?php if ($r_statement->kontak_lens==2){echo "Checked";}?>
                                                         style="margin-left: 17%;"/> Tidak
                                                     </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label>Jika ya, apakah anda perlu melepasnya sebelum perawatan wajah atau perawatan lainnya?</label>
+                                                    
+                                                </td>
+                                                <td>
                                                     <div id="melepasnya">
                                                         <input type="checkbox" value="1" id="melepasnya_on" name="i_melepasnya" class="form-check" 
                                                         <?php if ($r_statement->melepas_lens==1){echo "Checked";}?>
@@ -217,17 +218,34 @@
                                                         <?php if ($r_statement->melepas_lens==2){echo "Checked";}?>
                                                         style="margin-left: 17%;" /> Tidak
                                                     </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label>Bagaimana level tekanan pijatan yang anda inginkan saat perawatan?</label>
+                                                    
+                                                </td>
+                                                <td width="23%">
                                                     <div>
                                                         <input type="checkbox" value="1" id="pijatan_1" name="i_level" class="form-check check_2" 
                                                         <?php if ($r_statement->level==1){echo "Checked";}?>
-                                                         style="margin-left: 5%;" /> Lembut 
+                                                         style="margin-left: 5%;" /> <label>Lembut</label> 
                                                         <input type="checkbox" value="2" id="pijatan_2" name="i_level" class="form-check check_2" 
                                                         <?php if ($r_statement->level==2){echo "Checked";}?>
-                                                        style="margin-left: 1%;" /> Sedang
+                                                        style="margin-left: 1%;" /> <label>Sedang</label>
                                                         <input type="checkbox" value="3" id="pijatan_3" name="i_level" class="form-check check_2" 
                                                         <?php if ($r_statement->level==3){echo "Checked";}?>
-                                                        style="margin-left: 1%" /> Kuat
+                                                        style="margin-left: 1%" /> <label>Kuat</label>
                                                     </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label>Apakah anda ingin mendapatkan penawaran spesial kami melalui email atau pesan SMS/WA?</label>
+                                                </td>
+                                                <td>
                                                     <div  id="spesial">
                                                         <input type="checkbox" value="1" id="spesial_on" name="i_spesial" class="form-check" 
                                                         <?php if ($r_statement->spesial==1){echo "Checked";}?>
@@ -236,6 +254,14 @@
                                                         <?php if ($r_statement->spesial==2){echo "Checked";}?>
                                                         style="margin-left: 17%;"/> Tidak
                                                     </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label>Saya menyatakan bahwa jawaban yang berikan adalah benar</label>
+                                                </td>
+                                                <td>
                                                     <div id="jawaban">
                                                         <input type="checkbox" value="1" id="jawaban_on" name="i_jawaban" class="form-check" 
                                                         <?php if ($r_statement->jawaban==1){echo "Checked";}?>
@@ -244,6 +270,16 @@
                                                         <?php if ($r_statement->jawaban==2){echo "Checked";}?>
                                                         style="margin-left: 17%;"/> Tidak
                                                     </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div id="menyembunyikan">
+                                                            <label>Saya tidak menyembunyikan informasi apapun yang mungkin relevan untuk menentukan bagaimana perawatan saya dilakukan</label>
+                                                        </div>
+                                                </td>
+                                                <td> 
                                                     <div id="menyembunyikan" style="margin-bottom: 5%;">
                                                         <input type="checkbox" value="1" id="menyembunyikan_on" name="i_menyembunyikan" class="form-check" 
                                                         <?php if ($r_statement->tidak_menyembunyikan==1){echo "Checked";}?>
@@ -252,6 +288,17 @@
                                                         <?php if ($r_statement->tidak_menyembunyikan==2){echo "Checked";}?>
                                                         style="margin-left: 17%;"/> Tidak
                                                     </div>
+                                                    
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div id="menyembunyikan">
+                                                            <label>Saya mengetahui bahwa Zee Holistic Living tidak bertanggung jawab atas cedera atau keruskan setelah perawatan dilakukan</label>
+                                                        </div>
+                                                </td>
+                                                <td>
                                                     <div id="bertanggung">
                                                         <input type="checkbox" value="1" id="bertanggung_on" name="i_bertanggung_jawab" class="form-check" 
                                                         <?php if ($r_statement->tanggung_jawab==1){echo "Checked";}?>
@@ -260,29 +307,19 @@
                                                         <?php if ($r_statement->tanggung_jawab==2){echo "Checked";}?>
                                                         style="margin-left: 17%;"/> Tidak
                                                     </div>
-                                                </div>
-                                            </div>
-                                            
-                                           
-                                            <div style="clear:both;"></div>
-                                         
-                                        </div><!-- /.box-body -->
-                                
-                                            <div class="box-footer"  style="background-color: #fff;">
-                                                <input class="btn btn-danger" type="submit" value="Save"/>
-                                                <a href="<?= $close_button?>" class="btn btn-default" >Close</a>
-                                                <a href="member.php?page=print&statement=<?php echo $id?>" target="_blank" class="btn btn-danger1" >Print</a>
-                                                
-                                                
-                                            </div>
+                                                </td>
+                                            </tr>
 
-                                        </div> <!-- row -->
+                                        </table>
 
-                            
-                                    </div><!-- /.box -->
+                            <!-- tabel -->
+
                             </form>
-                        </div><!--/.col (right) -->
-                    </div>   <!-- /.row -->
+                            </div>
+                        </div> <!-- row -->
+                        </div> <!-- container -->
+                        </div>
+                        </div>
                 </section><!-- /.content -->
 
 <script type="text/javascript">
