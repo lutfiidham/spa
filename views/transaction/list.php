@@ -4,6 +4,7 @@
 	label{
 		color: rgb(107, 52, 106);
 	}
+
 </style>
 <section class="content">
 	<div class="col-md-12">
@@ -103,106 +104,14 @@
 							</div>
 
 							<div class="col-md-3">
+								<div><label><br></label></div>
 								<button class="btn btn-success" id="btnLanjut">Lanjut</button>
 							</div>
 							</div>
 
-							<!-- untuk Append -->
 							<div class="row">
-								<div class="col-md-12">
-								<h4>Pelanggan 1 :</h4>
-								</div>
+								<div id="form_cs"></div>
 							</div>
-							<div class="row">
-								<div class="col-md-3">
-									<div class="form-group">
-										<label for="">Nama : </label>
-										<div class="input-group">
-											<input type="text" required class="form-control pull-right number"
-											id="i_nama_" name="n_nama_" value=""/>
-										</div><!-- /.input group -->
-									</div>
-								</div>
-
-								<div class="col-md-3">
-									<div class="form-group">
-										<label for="">Pemijat :</label>
-										<select class="selectpicker form-control normal select2" id="i_pemijat_" name="n_pemijat_" required>
-										<option value="">- Pilih Pemijat -</option>
-											<?php while ($r_pemijat = mysql_fetch_array($q_pemijat)) {
-												if ($r_pemijat['available']) {
-												?>
-												<option value="<?= $r_pemijat['pemijat_id']?>"
-													<?php if ($pemijat_id = $r_branch['pemijat_id']){echo "selected";}?>>
-													<?= $r_pemijat['pemijat_name']?>
-														<!-- jika tidak available -->
-													</option>
-											<? }else{ ?>
-													<option  disabled="disabled" value="<?= $r_pemijat['pemijat_id']?>"
-													<?php if ($pemijat_id = $r_branch['pemijat_id']){echo "selected";}?>>
-													<?= $r_pemijat['pemijat_name']?></option>
-														<!-- jika available -->
-
-											<? }
-											} ?>
-										</select>
-									</div>
-								</div>
-
-								<div class="col-md-3">
-									<div class="form-group">
-										<label for="">Ruangan :</label>
-										<select class="selectpicker form-control normal select2" id="i_ruangan_" name="n_ruangan_" required>
-										<option value="">- Pilih Ruangan -</option>
-										</select>
-									</div>
-								</div>
-
-								<div class="col-md-2">
-									<div class="form-group">
-										<label for="">Pijat :</label>
-										
-										<select name="i_member" size="1" class="selectpicker form-control normal select2" id="member" required>
-		                      <option value="">- Pilih Pijat -</option>
-		                      <?php
-		                      while($r_pijat = mysql_fetch_array($q_pijat)){
-		                      ?>
-		                      <option value="<?= $r_pijat['pijat_id'] ?>">
-									<?= $r_pijat['pijat_name']?>
-								</option>
-		                      <?php
-		                      }
-		                      ?>
-		              </select>
-
-										<!-- <select id="pijat" name="n_pijat_" id="i_pijat_" size="1" class="selectpicker show-tick form-control"
-										data-live-search="true" onchange="set_harga()" required>
-	                     <option value="0"></option>
-	                      <?php
-	                      while($r_pijat = mysql_fetch_array($q_pijat)){
-	                      ?>
-	                      <option value="<?= $r_pijat['pijat_id'] ?>"
-													<?php if($r_reserved->pijat == $r_pijat['pijat_id']){ ?>
-														selected="selected"<?php } ?> data-harga = "<?php echo $r_pijat['pijat_harga'];?>">
-	                      	<?= $r_pijat['pijat_name']?>
-	                      </option>
-	                      <?php
-	                      }
-	                      ?>
-										</select> -->
-									</div>
-								</div>
-
-								<div class="col-md-1">
-									<a href="../controllers/transaction.php?page=statement_cs" type="button" data-toggle="modal" data-target="#questioner_" id="btnQ" class="btn" value="Q">Q</a>
-								</div>
-							
-							</div>
-
-							
-
-
-							<!-- End Append -->
 
 								
 
@@ -295,12 +204,66 @@
 <script type="text/javascript">
 
   jQuery('#btnQ').colorbox({
-  	width: "100%"
+  	width: "100%",
+  	closeButton: false
   });
 
 	$( "#btnLanjut" ).click(function() {
 	  var jml = $("#i_qty").val();
-	  var html = ''
+    $("#form_cs").empty();
+
+	for (var i = 0; i < jml; i++) {
+		var no = i+1;
+	  var html = '							<!-- untuk Append -->\
+							<div class="row">\
+								<div class="col-md-12">\
+								<h4>Pelanggan '+no+' :</h4>\
+								</div>\
+							</div>\
+							<div class="row">\
+								<div class="col-md-3">\
+									<div class="form-group">\
+										<label for="">Nama : </label>\
+										<div class="input-group">\
+											<input type="text" required class="form-control pull-right number"\
+											id="i_nama_" name="n_nama_" value=""/>\
+										</div><!-- /.input group -->\
+									</div>\
+								</div>\
+								<div class="col-md-3">\
+									<div class="form-group">\
+										<label for="">Pemijat :</label>\
+										<select class="selectpicker form-control normal select2" id="i_pemijat_" name="n_pemijat_" required>\
+										<option value="">- Pilih Pemijat -</option>\
+											\
+										</select>\
+									</div>\
+								</div>\
+								<div class="col-md-3">\
+									<div class="form-group">\
+										<label for="">Ruangan :</label>\
+										<select class="selectpicker form-control normal select2" id="i_ruangan_" name="n_ruangan_" required>\
+										<option value="">- Pilih Ruangan -</option>\
+										</select>\
+									</div>\
+								</div>\
+								<div class="col-md-2">\
+									<div class="form-group">\
+										<label for="">Pijat :</label>\
+										\
+										<select name="i_member" size="1" class="selectpicker form-control normal select2" id="member" required>\
+										</select>\
+									</div>\
+								</div>\
+								<div class="col-md-1">\
+									<div><label><br></label></div>\
+									<a href="../controllers/transaction.php?page=statement_cs" type="button" data-toggle="modal" data-target="#questioner_" id="btnQ" class="btn btn-info" value="Q">Q&A</a>\
+								</div>\
+							</div>\
+							<!-- End Append -->';
+					    $("#form_cs").append(html);
+					}
+
 	});
 
 	function set_harga() {

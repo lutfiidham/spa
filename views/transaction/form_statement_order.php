@@ -5,6 +5,7 @@
                 position:relative; 
                 width:17px; 
                 height:17px;
+                background-color: #dddddd;
                 }
 
     input.untukInput1 {
@@ -38,7 +39,7 @@
                         <div class="row">
                             <div class="col-md-12">
                 <div class="box box-cokelat">
-                    <div class="box-body" style="background-color: brown;">
+                    <div class="box-body" style="border-style: solid; ">
                                         
                     <div class="container">
                             <form action="<?= $action_statement?>" method="post" enctype="multipart/form-data" role="form">
@@ -311,6 +312,11 @@
                                             </tr>
 
                                         </table>
+
+                                        <div class="box-footer"  style="background-color: #fff;">
+                                                <input class="btn btn-danger" type="submit" value="Save"/>
+                                                <button onclick="<script>$.colorbox.close()</script>" class="btn btn-default" value="Close">Close</button>
+                                                <a href="member.php?page=print&statement=<?php echo $id?>" target="_blank" class="btn btn-danger1" >Print</a>
 
                             <!-- tabel -->
 

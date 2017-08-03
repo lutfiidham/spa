@@ -171,8 +171,23 @@ switch ($page) {
                     'available' => $ruangan['available'], 
                     );
           }
-          // var_dump($q_satuan_item);
-          // var_dump($data);
+          
+          echo json_encode($data);
+          break;
+
+          case 'get_pemijat_by':
+          
+          $q_pemijat = select_config('pemijat', '');
+
+
+            while ($r_pemijat = mysql_fetch_array($q_pemijat)) {
+              $data[] = array(
+                'pemijat_id'          => $r_pemijat['pemijat_id'],
+                'pemijat_name'          => $r_pemijat['pemijat_name'],
+                'available'          => $r_pemijat['available'],
+             );
+            }
+            // var_dump($data);
           echo json_encode($data);
           break;
 
@@ -390,5 +405,8 @@ switch ($page) {
       include '../views/transaction/form_statement_order.php';
       get_footer();
     break;
+    case 'get_ruangan':
+      # code...
+      break;
 
     }
