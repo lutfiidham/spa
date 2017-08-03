@@ -61,6 +61,7 @@ if(!$_SESSION['login']){
         <script src="../js/jquery-ui.js"></script>
         <script src="../assets/clock-picker/bootstrap-clockpicker.min.js"></script>
         <script src="../assets/clock-picker/jquery-clockpicker.min.js"></script>
+        <script src="../assets/jquery.colorbox-min.js"></script>
         <script type="text/javascript">
 
         $(function(){

@@ -486,14 +486,3 @@ $( "#reservdate2" ).click(function() {
   });
 });
         </script>
-<script>
-    $(document).ready(function () {
-        $("select").select2({
-            placeholder: "Please Select"
-        });
-    });
-    $("select").select2({
-            placeholder: "Please Select"
-        });
-
-</script>

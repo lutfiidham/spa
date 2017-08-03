@@ -40,7 +40,22 @@ function save_table_location($id, $data_x, $data_y){
 
 }
 
+function select_statement($id){
+	$query = mysql_query("select a.*, b.member_id
+							from statement a
+							join members b ON b.member_id = a.member_id	
+							where member_id = '$id'	
+							order by statement_id");
+	return $query;
+}
 
+function read_id($id){
+	$query = mysql_query("select *
+			from members
+			where member_id = '$id'");
+	$result = mysql_fetch_object($query);
+	return $result;
+}
 
 
 ?>

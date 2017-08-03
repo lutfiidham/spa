@@ -330,4 +330,65 @@ switch ($page) {
                 header("location: statement.php?page=list&id=$transaction_id&member=$i_member&status=$status");
             break;
 
+      case 'statement_cs':
+
+      $close_button = "member.php?page=list";
+      // $print ="print.php?page=statement";
+
+      $id = (isset($_GET['id'])) ? $_GET['id'] : 9;
+      $query_statement = select_statement($id);
+
+      if($id){
+        $row = read_id($id);
+        $where_member_id = "where member_id = '$id'";
+        $r_statement = select_object_config('statement', $where_member_id);
+
+        $action = "member.php?page=edit&id=$id"; 
+
+        $check_statement = select_config_by('statement', 'count(*)', $where_member_id);
+
+        if (!$check_statement) {
+
+          $r_statement = new stdClass();
+
+          $r_statement->tekanan = false;
+          $r_statement->asma = false;
+          $r_statement->inhaler = false;
+          $r_statement->leher = false;
+          $r_statement->kulit = false;
+          $r_statement->kulit_jabarkan = false;
+          $r_statement->selain_diatas = false;
+          $r_statement->selain_jabarkan = false;
+          $r_statement->alergi  = false;
+          $r_statement->alergi_jabarkan = false;
+          $r_statement->hamil = false;
+          $r_statement->usia_kandungan = false;
+          $r_statement->kontak_lens = false;
+          $r_statement->melepas_lens = false;
+          $r_statement->level = false;
+          $r_statement->spesial = false;
+          $r_statement->jawaban = false;
+          $r_statement->tidak_menyembunyikan = false;
+          $r_statement->tanggung_jawab = false;
+          $action_statement = "member.php?page=save_statement&id=$id";
+        } else {
+          $action_statement = "member.php?page=edit_statement&id=$id";
+        }
+
+      } else {
+
+        //inisialisasi
+        $row = new stdClass();
+
+        $row->member_name = false;
+        $row->member_phone = false;
+        $row->member_dateofbirth = false;
+        $row->member_alamat = false;
+        $row->member_email = false;
+        $action = "member.php?page=save";
+      }
+      include '../views/transaction/form_statement_order.php';
+      get_footer();
+    break;
+
     }

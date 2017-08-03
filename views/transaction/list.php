@@ -194,10 +194,13 @@
 								</div>
 
 								<div class="col-md-1">
-									<input type="button" value="Questioner"></input>
+									<a href="../controllers/transaction.php?page=statement_cs" type="button" data-toggle="modal" data-target="#questioner_" id="btnQ" class="btn" value="Q">Q</a>
 								</div>
 							
 							</div>
+
+							
+
 
 							<!-- End Append -->
 
@@ -290,6 +293,10 @@
 	</div>
 </section>
 <script type="text/javascript">
+
+  jQuery('#btnQ').colorbox({
+  	width: "100%"
+  });
 
 	$( "#btnLanjut" ).click(function() {
 	  var jml = $("#i_qty").val();
@@ -650,9 +657,9 @@ $(document).ready(function(){
 
 <script>
 	$(document).ready(function () {
-		$(".select2").select2({
-			placeholder: "Please Select"
-		});
+		// $(".select2").select2({
+		// 	placeholder: "Please Select"
+		// });
 		// $("#cabang").select2({
 		// 	placeholder: "Please Select"
 		// });
@@ -707,5 +714,14 @@ $(document).ready(function(){
 	});
 
 	
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("select").select2({
+            placeholder: "Please Select"
+        });
+    });
 
 </script>
