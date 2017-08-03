@@ -34,7 +34,7 @@
 											<i class="fa fa-clock-o"></i>
 										</div>
 										<input type="text" required class="form-control pull-right normal clockpicker "
-										id="clock_picker1" name="i_clock" value="<?php echo date("G:i"); ?>"/>
+										id="clock_picker1" name="i_clock" value="<?php echo date("H:i"); ?>"/>
 									</div><!-- /.input group -->
 								</div>
 							</div>
@@ -64,8 +64,7 @@
 									<select class="selectpicker form-control normal select2" id="cabang" name="i_branch" required>
 									<option value="">- Pilih Cabang -</option>
 										<?php while ($r_branch = mysql_fetch_array($q_branch)) {?>
-											<option value="<?= $r_branch['branch_id']?>"
-												<?php if ($branch_id = $r_branch['branch_id']){echo "selected";}?>>
+											<option value="<?= $r_branch['branch_id']?>">
 												<?= $r_branch['branch_name']?></option>
 										<? } ?>
 									</select>
@@ -120,7 +119,7 @@
 										<label for="">Nama : </label>
 										<div class="input-group">
 											<input type="text" required class="form-control pull-right number"
-											id="i_notelp_" name="n_notelp_" value=""/>
+											id="i_nama_" name="n_nama_" value=""/>
 										</div><!-- /.input group -->
 									</div>
 								</div>
@@ -131,15 +130,15 @@
 										<select class="selectpicker form-control normal select2" id="i_pemijat_" name="n_pemijat_" required>
 										<option value="">- Pilih Pemijat -</option>
 											<?php while ($r_pemijat = mysql_fetch_array($q_pemijat)) {
-												if ($r_pemijat['available']=='0') {
+												if ($r_pemijat['available']) {
 												?>
-												<option disabled="disabled" value="<?= $r_pemijat['pemijat_id']?>"
+												<option value="<?= $r_pemijat['pemijat_id']?>"
 													<?php if ($pemijat_id = $r_branch['pemijat_id']){echo "selected";}?>>
 													<?= $r_pemijat['pemijat_name']?>
 														<!-- jika tidak available -->
-													
+													</option>
 											<? }else{ ?>
-													</option><option value="<?= $r_pemijat['pemijat_id']?>"
+													<option  disabled="disabled" value="<?= $r_pemijat['pemijat_id']?>"
 													<?php if ($pemijat_id = $r_branch['pemijat_id']){echo "selected";}?>>
 													<?= $r_pemijat['pemijat_name']?></option>
 														<!-- jika available -->
@@ -149,21 +148,34 @@
 										</select>
 									</div>
 								</div>
-							
-							</div>
 
-							<!-- End Append -->
+								<div class="col-md-3">
+									<div class="form-group">
+										<label for="">Ruangan :</label>
+										<select class="selectpicker form-control normal select2" id="i_ruangan_" name="n_ruangan_" required>
+										<option value="">- Pilih Ruangan -</option>
+										</select>
+									</div>
+								</div>
 
-								
-
-							</div>
-
-							
-							<div class="row">
-								<div class="col-md-12">
+								<div class="col-md-2">
 									<div class="form-group">
 										<label for="">Pijat :</label>
-										<select id="pijat" name="i_pijat" size="1" class="selectpicker show-tick form-control"
+										
+										<select name="i_member" size="1" class="selectpicker form-control normal select2" id="member" required>
+		                      <option value="">- Pilih Pijat -</option>
+		                      <?php
+		                      while($r_pijat = mysql_fetch_array($q_pijat)){
+		                      ?>
+		                      <option value="<?= $r_pijat['pijat_id'] ?>">
+									<?= $r_pijat['pijat_name']?>
+								</option>
+		                      <?php
+		                      }
+		                      ?>
+		              </select>
+
+										<!-- <select id="pijat" name="n_pijat_" id="i_pijat_" size="1" class="selectpicker show-tick form-control"
 										data-live-search="true" onchange="set_harga()" required>
 	                     <option value="0"></option>
 	                      <?php
@@ -177,8 +189,26 @@
 	                      <?php
 	                      }
 	                      ?>
-										</select>
+										</select> -->
 									</div>
+								</div>
+
+								<div class="col-md-1">
+									<input type="button" value="Questioner"></input>
+								</div>
+							
+							</div>
+
+							<!-- End Append -->
+
+								
+
+							</div>
+
+							
+							<div class="row">
+								<div class="col-md-12">
+									
 									<div class="form-group">
 										<label>Harga :</label>
 										<input required type="text" class="form-control normal" readonly name="grand_total_currency" id="grand_total_currency">
@@ -644,4 +674,38 @@ $(document).ready(function(){
     autoclose: true,
     'default': 'now'
 	});
+
+	$( "#cabang" ).change(function() {
+	  var cabang_id = $('#cabang').val();
+          // alert(item_id);
+          $.ajax({
+            type        : "post",
+            url         : "transaction.php?page=get_ruangan_by",
+            data        : {branch_id:cabang_id},
+            dataType    : "json",
+            success: function(data){
+              $('#i_ruangan_').empty();
+              $('#i_ruangan_').append('<option value="0"></option>');
+
+              for (var i = 0; i < data.length; i++) {
+                if (data[i].available) {
+                $('#i_ruangan_').append('<option value="'+data[i].ruangan_id+'">'+data[i].ruangan_name+'</option>');	
+            }else{
+
+                $('#i_ruangan_').append('<option disabled="disabled" value="'+data[i].ruangan_id+'">'+data[i].ruangan_name+'</option>');
+            }
+              }
+
+            },
+            error: function(data)
+            {
+              console.log(data);
+
+              alert("error");
+            }
+          });
+	});
+
+	
+
 </script>

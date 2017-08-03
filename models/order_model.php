@@ -5,6 +5,13 @@ function select(){
 	return $query;
 }
 
+function select_ruangan_by($id)
+{
+	$query = "SELECT * from ruangan WHERE branch_id = '$id'";
+	$queryr = mysql_query($query);
+	return $queryr;
+}
+
 function select_table_merger($building_id, $table_id){
 	$query = mysql_query("select a.* , b.building_name as nama_gedung
 							from tables a

@@ -160,6 +160,22 @@ switch ($page) {
         get_footer();
         break;
 
+        // for Menu Drop Down Ruangan
+        case 'get_ruangan_by':
+          $branch_id = $_POST['branch_id'];
+          $q_ruangan = select_ruangan_by($branch_id);
+          while ($ruangan = mysql_fetch_array($q_ruangan)) {
+            $data[] = array(
+                    'ruangan_id' => $ruangan['ruangan_id'], 
+                    'ruangan_name' => $ruangan['ruangan_name'], 
+                    'available' => $ruangan['available'], 
+                    );
+          }
+          // var_dump($q_satuan_item);
+          // var_dump($data);
+          echo json_encode($data);
+          break;
+
         default:
 
     break;
