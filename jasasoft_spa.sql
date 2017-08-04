@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
--- https://www.phpmyadmin.net/
+-- version 4.2.7.1
+-- http://www.phpmyadmin.net
 --
--- Host: localhost:3306
--- Generation Time: Aug 01, 2017 at 09:16 PM
--- Server version: 5.6.35
--- PHP Version: 5.6.30
+-- Host: localhost
+-- Generation Time: 04 Agu 2017 pada 11.42
+-- Versi Server: 5.5.39
+-- PHP Version: 5.4.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `jasasoft_spa`
@@ -23,17 +23,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `banks`
+-- Struktur dari tabel `banks`
 --
 
-CREATE TABLE `banks` (
-  `bank_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `banks` (
+`bank_id` int(11) NOT NULL,
   `bank_name` varchar(100) NOT NULL,
   `bank_account_number` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `banks`
+-- Dumping data untuk tabel `banks`
 --
 
 INSERT INTO `banks` (`bank_id`, `bank_name`, `bank_account_number`) VALUES
@@ -44,20 +44,20 @@ INSERT INTO `banks` (`bank_id`, `bank_name`, `bank_account_number`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `branches`
+-- Struktur dari tabel `branches`
 --
 
-CREATE TABLE `branches` (
-  `branch_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `branches` (
+`branch_id` int(11) NOT NULL,
   `branch_name` varchar(200) NOT NULL,
   `branch_desc` text NOT NULL,
   `branch_address` text NOT NULL,
   `branch_phone` varchar(100) NOT NULL,
   `branch_city` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `branches`
+-- Dumping data untuk tabel `branches`
 --
 
 INSERT INTO `branches` (`branch_id`, `branch_name`, `branch_desc`, `branch_address`, `branch_phone`, `branch_city`) VALUES
@@ -71,18 +71,18 @@ INSERT INTO `branches` (`branch_id`, `branch_name`, `branch_desc`, `branch_addre
 -- --------------------------------------------------------
 
 --
--- Table structure for table `infrastruktur`
+-- Struktur dari tabel `infrastruktur`
 --
 
-CREATE TABLE `infrastruktur` (
-  `infrastruktur_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `infrastruktur` (
+`infrastruktur_id` int(11) NOT NULL,
   `infrastruktur_name` varchar(200) NOT NULL,
   `infrastruktur_warna` varchar(200) NOT NULL,
   `infrastruktur_img` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
--- Dumping data for table `infrastruktur`
+-- Dumping data untuk tabel `infrastruktur`
 --
 
 INSERT INTO `infrastruktur` (`infrastruktur_id`, `infrastruktur_name`, `infrastruktur_warna`, `infrastruktur_img`) VALUES
@@ -93,21 +93,21 @@ INSERT INTO `infrastruktur` (`infrastruktur_id`, `infrastruktur_name`, `infrastr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `item`
+-- Struktur dari tabel `item`
 --
 
-CREATE TABLE `item` (
-  `item_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `item` (
+`item_id` int(11) NOT NULL,
   `item_name` varchar(200) NOT NULL,
   `item_hpp` int(11) NOT NULL,
   `item_margin` int(11) NOT NULL,
   `item_harga_jual` int(11) NOT NULL,
   `item_limit` int(11) NOT NULL,
   `item_satuan` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
 
 --
--- Dumping data for table `item`
+-- Dumping data untuk tabel `item`
 --
 
 INSERT INTO `item` (`item_id`, `item_name`, `item_hpp`, `item_margin`, `item_harga_jual`, `item_limit`, `item_satuan`) VALUES
@@ -131,18 +131,18 @@ INSERT INTO `item` (`item_id`, `item_name`, `item_hpp`, `item_margin`, `item_har
 -- --------------------------------------------------------
 
 --
--- Table structure for table `item_stocks`
+-- Struktur dari tabel `item_stocks`
 --
 
-CREATE TABLE `item_stocks` (
-  `item_stock_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `item_stocks` (
+`item_stock_id` int(11) NOT NULL,
   `item` int(11) NOT NULL,
   `item_stock_qty` int(11) NOT NULL,
   `branch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `item_stocks`
+-- Dumping data untuk tabel `item_stocks`
 --
 
 INSERT INTO `item_stocks` (`item_stock_id`, `item`, `item_stock_qty`, `branch`) VALUES
@@ -155,11 +155,11 @@ INSERT INTO `item_stocks` (`item_stock_id`, `item`, `item_stock_qty`, `branch`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `journals`
+-- Struktur dari tabel `journals`
 --
 
-CREATE TABLE `journals` (
-  `journal_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `journals` (
+`journal_id` int(11) NOT NULL,
   `journal_type_id` int(11) NOT NULL,
   `data_id` varchar(11) NOT NULL,
   `data_url` text NOT NULL,
@@ -172,10 +172,10 @@ CREATE TABLE `journals` (
   `bank_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `branch_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
--- Dumping data for table `journals`
+-- Dumping data untuk tabel `journals`
 --
 
 INSERT INTO `journals` (`journal_id`, `journal_type_id`, `data_id`, `data_url`, `journal_debit`, `journal_credit`, `journal_piutang`, `journal_hutang`, `journal_date`, `journal_desc`, `bank_id`, `user_id`, `branch_id`) VALUES
@@ -198,16 +198,16 @@ INSERT INTO `journals` (`journal_id`, `journal_type_id`, `data_id`, `data_url`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `journal_types`
+-- Struktur dari tabel `journal_types`
 --
 
-CREATE TABLE `journal_types` (
-  `journal_type_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `journal_types` (
+`journal_type_id` int(11) NOT NULL,
   `journal_type_name` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `journal_types`
+-- Dumping data untuk tabel `journal_types`
 --
 
 INSERT INTO `journal_types` (`journal_type_id`, `journal_type_name`) VALUES
@@ -219,16 +219,16 @@ INSERT INTO `journal_types` (`journal_type_id`, `journal_type_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
-CREATE TABLE `kategori` (
-  `kategori_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `kategori` (
+`kategori_id` int(11) NOT NULL,
   `kategori_name` varbinary(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`kategori_id`, `kategori_name`) VALUES
@@ -242,31 +242,31 @@ INSERT INTO `kategori` (`kategori_id`, `kategori_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori_paket_pijat`
+-- Struktur dari tabel `kategori_paket_pijat`
 --
 
-CREATE TABLE `kategori_paket_pijat` (
-  `kategori_paket_pijat_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `kategori_paket_pijat` (
+`kategori_paket_pijat_id` int(11) NOT NULL,
   `kategori_paket_pijat_name` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `konversi_item`
+-- Struktur dari tabel `konversi_item`
 --
 
-CREATE TABLE `konversi_item` (
-  `konversi_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `konversi_item` (
+`konversi_id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL,
   `satuan_utama` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL,
   `satuan_konversi` int(11) NOT NULL,
   `jumlah_satuan_konversi` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `konversi_item`
+-- Dumping data untuk tabel `konversi_item`
 --
 
 INSERT INTO `konversi_item` (`konversi_id`, `item_id`, `satuan_utama`, `jumlah`, `satuan_konversi`, `jumlah_satuan_konversi`) VALUES
@@ -278,47 +278,48 @@ INSERT INTO `konversi_item` (`konversi_id`, `item_id`, `satuan_utama`, `jumlah`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `members`
+-- Struktur dari tabel `members`
 --
 
-CREATE TABLE `members` (
-  `member_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `members` (
+`member_id` int(11) NOT NULL,
   `member_name` varchar(100) NOT NULL,
   `member_dateofbirth` date NOT NULL,
   `member_phone` varchar(100) NOT NULL,
   `member_alamat` varchar(30) NOT NULL,
   `member_email` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `members`
+-- Dumping data untuk tabel `members`
 --
 
 INSERT INTO `members` (`member_id`, `member_name`, `member_dateofbirth`, `member_phone`, `member_alamat`, `member_email`) VALUES
-(1, 'member 1', '2017-07-24', '089657345765', 'jl lontar', 'member1@gmail.com'),
+(1, 'member 12', '2017-07-24', '089657345765', 'jl lontar', 'member1@gmail.com'),
 (2, 'member 2', '2017-07-26', '088329134198', 'jl lontar ', 'member2@gmail.com'),
 (6, 'Arif', '2017-07-24', '88855', 'banyuwangi', 'email@yahoo.com'),
-(8, 'Arif', '2017-07-24', '777', 'banyuwangi', 'email@yahoo.com');
+(8, 'Arif', '2017-07-24', '777', 'banyuwangi', 'email@yahoo.com'),
+(9, 'Suroso', '2017-08-02', '081515141619', 'Wonsalam', 'lutfi@dr.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `member_items`
+-- Struktur dari tabel `member_items`
 --
 
-CREATE TABLE `member_items` (
-  `member_item_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `member_items` (
+`member_item_id` int(11) NOT NULL,
   `member_id` int(11) NOT NULL,
   `menu_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `office`
+-- Struktur dari tabel `office`
 --
 
-CREATE TABLE `office` (
+CREATE TABLE IF NOT EXISTS `office` (
   `office_id` int(11) NOT NULL,
   `office_name` varchar(200) NOT NULL,
   `office_img` text NOT NULL,
@@ -334,7 +335,7 @@ CREATE TABLE `office` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `office`
+-- Dumping data untuk tabel `office`
 --
 
 INSERT INTO `office` (`office_id`, `office_name`, `office_img`, `office_desc`, `office_address`, `office_phone`, `office_email`, `office_city`, `office_owner`, `office_owner_phone`, `office_owner_address`, `office_owner_email`) VALUES
@@ -343,11 +344,11 @@ INSERT INTO `office` (`office_id`, `office_name`, `office_img`, `office_desc`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Struktur dari tabel `order`
 --
 
-CREATE TABLE `order` (
-  `order_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `order` (
+`order_id` int(11) NOT NULL,
   `order_date` datetime NOT NULL,
   `branch` int(11) NOT NULL,
   `member` int(11) NOT NULL,
@@ -361,36 +362,36 @@ CREATE TABLE `order` (
   `bank_account_number` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_tmp`
+-- Struktur dari tabel `order_tmp`
 --
 
-CREATE TABLE `order_tmp` (
-  `order_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `order_tmp` (
+`order_id` int(11) NOT NULL,
   `member` int(11) NOT NULL,
   `reservasi` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `branch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paket_pijat`
+-- Struktur dari tabel `paket_pijat`
 --
 
-CREATE TABLE `paket_pijat` (
-  `paket_pijat_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `paket_pijat` (
+`paket_pijat_id` int(11) NOT NULL,
   `paket_pijat_name` varchar(200) NOT NULL,
   `paket_pijat_harga` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `paket_pijat`
+-- Dumping data untuk tabel `paket_pijat`
 --
 
 INSERT INTO `paket_pijat` (`paket_pijat_id`, `paket_pijat_name`, `paket_pijat_harga`) VALUES
@@ -400,17 +401,17 @@ INSERT INTO `paket_pijat` (`paket_pijat_id`, `paket_pijat_name`, `paket_pijat_ha
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paket_pijat_details`
+-- Struktur dari tabel `paket_pijat_details`
 --
 
-CREATE TABLE `paket_pijat_details` (
-  `paket_pijat_detail_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `paket_pijat_details` (
+`paket_pijat_detail_id` int(11) NOT NULL,
   `paket_pijat` int(11) NOT NULL,
   `pijat` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `paket_pijat_details`
+-- Dumping data untuk tabel `paket_pijat_details`
 --
 
 INSERT INTO `paket_pijat_details` (`paket_pijat_detail_id`, `paket_pijat`, `pijat`) VALUES
@@ -419,16 +420,16 @@ INSERT INTO `paket_pijat_details` (`paket_pijat_detail_id`, `paket_pijat`, `pija
 -- --------------------------------------------------------
 
 --
--- Table structure for table `partners`
+-- Struktur dari tabel `partners`
 --
 
-CREATE TABLE `partners` (
-  `partner_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `partners` (
+`partner_id` int(11) NOT NULL,
   `partner_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `partners`
+-- Dumping data untuk tabel `partners`
 --
 
 INSERT INTO `partners` (`partner_id`, `partner_name`) VALUES
@@ -437,30 +438,30 @@ INSERT INTO `partners` (`partner_id`, `partner_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `payments`
+-- Struktur dari tabel `payments`
 --
 
-CREATE TABLE `payments` (
-  `payment_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `payments` (
+`payment_id` int(11) NOT NULL,
   `registration_id` int(11) NOT NULL,
   `payment_date` date NOT NULL,
   `payment_jumlah` int(11) NOT NULL,
   `payment_sisa` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `payment_methods`
+-- Struktur dari tabel `payment_methods`
 --
 
-CREATE TABLE `payment_methods` (
-  `payment_method_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `payment_methods` (
+`payment_method_id` int(11) NOT NULL,
   `payment_method_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `payment_methods`
+-- Dumping data untuk tabel `payment_methods`
 --
 
 INSERT INTO `payment_methods` (`payment_method_id`, `payment_method_name`) VALUES
@@ -471,39 +472,43 @@ INSERT INTO `payment_methods` (`payment_method_id`, `payment_method_name`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemijat`
+-- Struktur dari tabel `pemijat`
 --
 
-CREATE TABLE `pemijat` (
-  `pemijat_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `pemijat` (
+`pemijat_id` int(11) NOT NULL,
   `pemijat_name` varchar(100) NOT NULL,
   `pemijat_dateofbirth` date NOT NULL,
   `pemijat_phone` varchar(100) NOT NULL,
-  `pemijat_alamat` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `pemijat_alamat` varchar(30) NOT NULL,
+  `available` varchar(2) NOT NULL,
+  `branch_id` varchar(3) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `pemijat`
+-- Dumping data untuk tabel `pemijat`
 --
 
-INSERT INTO `pemijat` (`pemijat_id`, `pemijat_name`, `pemijat_dateofbirth`, `pemijat_phone`, `pemijat_alamat`) VALUES
-(1, 'Dina', '1992-02-14', '318951232', 'Banyuwangi1');
+INSERT INTO `pemijat` (`pemijat_id`, `pemijat_name`, `pemijat_dateofbirth`, `pemijat_phone`, `pemijat_alamat`, `available`, `branch_id`) VALUES
+(1, 'Dina', '1992-02-14', '318951232', 'Banyuwangi1', '90', '5'),
+(4, 'Mbak Mbak', '2017-08-02', '1234', 'Sana', '', '5'),
+(5, 'Mbak 1', '2017-08-03', '1234', 'situ', '1', '6');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permits`
+-- Struktur dari tabel `permits`
 --
 
-CREATE TABLE `permits` (
-  `permit_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `permits` (
+`permit_id` int(11) NOT NULL,
   `user_type_id` int(11) NOT NULL,
   `side_menu_id` int(11) NOT NULL,
   `permit_acces` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=769 ;
 
 --
--- Dumping data for table `permits`
+-- Dumping data untuk tabel `permits`
 --
 
 INSERT INTO `permits` (`permit_id`, `user_type_id`, `side_menu_id`, `permit_acces`) VALUES
@@ -574,19 +579,19 @@ INSERT INTO `permits` (`permit_id`, `user_type_id`, `side_menu_id`, `permit_acce
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pijat`
+-- Struktur dari tabel `pijat`
 --
 
-CREATE TABLE `pijat` (
-  `pijat_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `pijat` (
+`pijat_id` int(11) NOT NULL,
   `pijat_name` varchar(200) NOT NULL,
   `pijat_waktu` int(11) NOT NULL,
   `pijat_harga` int(11) NOT NULL,
   `infrastruktur` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `pijat`
+-- Dumping data untuk tabel `pijat`
 --
 
 INSERT INTO `pijat` (`pijat_id`, `pijat_name`, `pijat_waktu`, `pijat_harga`, `infrastruktur`) VALUES
@@ -604,35 +609,36 @@ INSERT INTO `pijat` (`pijat_id`, `pijat_name`, `pijat_waktu`, `pijat_harga`, `in
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pijat_details`
+-- Struktur dari tabel `pijat_details`
 --
 
-CREATE TABLE `pijat_details` (
-  `pijat_detail_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `pijat_details` (
+`pijat_detail_id` int(11) NOT NULL,
   `pijat` int(11) NOT NULL,
   `item` int(11) NOT NULL,
   `satuan` int(11) NOT NULL,
   `item_qty` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
--- Dumping data for table `pijat_details`
+-- Dumping data untuk tabel `pijat_details`
 --
 
 INSERT INTO `pijat_details` (`pijat_detail_id`, `pijat`, `item`, `satuan`, `item_qty`) VALUES
 (2, 6, 38, 5, 10),
 (3, 7, 1, 5, 150),
 (4, 5, 2, 6, 10),
-(5, 9, 1, 6, 10);
+(5, 9, 1, 6, 10),
+(6, 1, 1, 8, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `purchases`
+-- Struktur dari tabel `purchases`
 --
 
-CREATE TABLE `purchases` (
-  `purchase_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `purchases` (
+`purchase_id` int(11) NOT NULL,
   `purchase_code` varchar(200) NOT NULL,
   `purchase_date` date NOT NULL,
   `item_id` int(11) NOT NULL,
@@ -642,10 +648,10 @@ CREATE TABLE `purchases` (
   `supplier_id` int(11) NOT NULL,
   `branch_id` int(11) NOT NULL,
   `satuan_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `purchases`
+-- Dumping data untuk tabel `purchases`
 --
 
 INSERT INTO `purchases` (`purchase_id`, `purchase_code`, `purchase_date`, `item_id`, `purchase_qty`, `purchase_price`, `purchase_total`, `supplier_id`, `branch_id`, `satuan_id`) VALUES
@@ -656,26 +662,26 @@ INSERT INTO `purchases` (`purchase_id`, `purchase_code`, `purchase_date`, `item_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reservasi`
+-- Struktur dari tabel `reservasi`
 --
 
-CREATE TABLE `reservasi` (
-  `reservasi_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `reservasi` (
+`reservasi_id` int(11) NOT NULL,
   `reservasi_code` varchar(200) NOT NULL,
   `reservasi_date1` datetime NOT NULL,
   `reservasi_date2` datetime NOT NULL,
   `order_code` varchar(200) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reserved`
+-- Struktur dari tabel `reserved`
 --
 
-CREATE TABLE `reserved` (
-  `reserved_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `reserved` (
+`reserved_id` int(11) NOT NULL,
   `member_id` varchar(200) DEFAULT NULL,
   `phone` varchar(50) NOT NULL,
   `address` varchar(200) NOT NULL,
@@ -683,10 +689,10 @@ CREATE TABLE `reserved` (
   `hour` time DEFAULT NULL,
   `pijat` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
--- Dumping data for table `reserved`
+-- Dumping data untuk tabel `reserved`
 --
 
 INSERT INTO `reserved` (`reserved_id`, `member_id`, `phone`, `address`, `date`, `hour`, `pijat`, `status`) VALUES
@@ -697,39 +703,41 @@ INSERT INTO `reserved` (`reserved_id`, `member_id`, `phone`, `address`, `date`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ruangan`
+-- Struktur dari tabel `ruangan`
 --
 
-CREATE TABLE `ruangan` (
-  `ruangan_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `ruangan` (
+`ruangan_id` int(11) NOT NULL,
   `ruangan_name` varchar(100) NOT NULL,
-  `branch_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `branch_id` int(11) NOT NULL,
+  `available` varchar(2) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
 
 --
--- Dumping data for table `ruangan`
+-- Dumping data untuk tabel `ruangan`
 --
 
-INSERT INTO `ruangan` (`ruangan_id`, `ruangan_name`, `branch_id`) VALUES
-(9, 'Ruang 1', 6),
-(10, 'Ruang Anggrek', 5),
-(12, 'Ruang 3', 7),
-(14, 'Ruang 1', 8),
-(15, 'Ruang 2', 8),
-(18, 'Ruang coba', 10),
-(27, 'Ruang Melati', 5),
-(28, 'Ruang coba', 10),
-(29, 'Ruang coba coba', 5),
-(30, 'Ruang 1', 8);
+INSERT INTO `ruangan` (`ruangan_id`, `ruangan_name`, `branch_id`, `available`) VALUES
+(9, 'Ruang 1', 6, '1'),
+(10, 'Ruang Anggrek', 5, ''),
+(12, 'Ruang 3', 7, '1'),
+(14, 'Ruang 1', 8, '1'),
+(15, 'Ruang 2', 8, '1'),
+(18, 'Ruang coba', 10, '1'),
+(27, 'Ruang Melati', 5, '1'),
+(28, 'Ruang coba', 10, '1'),
+(29, 'Ruang coba coba', 5, '1'),
+(30, 'Ruang 1', 8, '1'),
+(31, 'Ruang Kepsek', 5, '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ruangan_infrastruktur`
+-- Struktur dari tabel `ruangan_infrastruktur`
 --
 
-CREATE TABLE `ruangan_infrastruktur` (
-  `ruangan_infrastruktur_id` int(10) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `ruangan_infrastruktur` (
+`ruangan_infrastruktur_id` int(10) unsigned NOT NULL,
   `ruangan` int(11) NOT NULL,
   `branch` int(11) NOT NULL,
   `infrastruktur` int(11) NOT NULL,
@@ -737,33 +745,33 @@ CREATE TABLE `ruangan_infrastruktur` (
   `koordinat_x` int(11) NOT NULL,
   `koordinat_y` int(11) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
--- Dumping data for table `ruangan_infrastruktur`
+-- Dumping data untuk tabel `ruangan_infrastruktur`
 --
 
 INSERT INTO `ruangan_infrastruktur` (`ruangan_infrastruktur_id`, `ruangan`, `branch`, `infrastruktur`, `infrastruktur_name`, `koordinat_x`, `koordinat_y`, `status`) VALUES
-(11, 9, 7, 1, 'Kursi Pijat 2', 518, 205, 0),
-(12, 9, 7, 1, 'Kursi Pijat 1', 443, 206, 0),
+(11, 9, 7, 1, 'Kursi Pijat 2', 450, 283, 0),
+(12, 9, 7, 1, 'Kursi Pijat 1', 574, 173, 0),
 (17, 0, 7, 0, '', 0, 0, 0),
 (19, 0, 7, 0, '', 0, 0, 0),
 (20, 0, 7, 0, '', 0, 0, 0),
-(21, 9, 7, 6, 'Tes1', 267, 87, 0);
+(21, 9, 7, 6, 'Tes1', 94, 130, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `satuan`
+-- Struktur dari tabel `satuan`
 --
 
-CREATE TABLE `satuan` (
-  `satuan_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `satuan` (
+`satuan_id` int(11) NOT NULL,
   `satuan_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `satuan`
+-- Dumping data untuk tabel `satuan`
 --
 
 INSERT INTO `satuan` (`satuan_id`, `satuan_name`) VALUES
@@ -776,21 +784,21 @@ INSERT INTO `satuan` (`satuan_id`, `satuan_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `side_menus`
+-- Struktur dari tabel `side_menus`
 --
 
-CREATE TABLE `side_menus` (
-  `side_menu_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `side_menus` (
+`side_menu_id` int(11) NOT NULL,
   `side_menu_name` varchar(100) NOT NULL,
   `side_menu_url` varchar(100) NOT NULL,
   `side_menu_parent` int(11) NOT NULL,
   `side_menu_icon` varchar(100) NOT NULL,
   `side_menu_level` int(11) NOT NULL,
   `side_menu_type_parent` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
 
 --
--- Dumping data for table `side_menus`
+-- Dumping data untuk tabel `side_menus`
 --
 
 INSERT INTO `side_menus` (`side_menu_id`, `side_menu_name`, `side_menu_url`, `side_menu_parent`, `side_menu_icon`, `side_menu_level`, `side_menu_type_parent`) VALUES
@@ -831,11 +839,11 @@ INSERT INTO `side_menus` (`side_menu_id`, `side_menu_name`, `side_menu_url`, `si
 -- --------------------------------------------------------
 
 --
--- Table structure for table `statement`
+-- Struktur dari tabel `statement`
 --
 
-CREATE TABLE `statement` (
-  `statement_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `statement` (
+`statement_id` int(11) NOT NULL,
   `member_id` int(11) NOT NULL,
   `tekanan` int(11) NOT NULL,
   `asma` int(11) NOT NULL,
@@ -856,14 +864,14 @@ CREATE TABLE `statement` (
   `jawaban` int(11) NOT NULL,
   `tidak_menyembunyikan` int(11) NOT NULL,
   `tanggung_jawab` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
--- Dumping data for table `statement`
+-- Dumping data untuk tabel `statement`
 --
 
 INSERT INTO `statement` (`statement_id`, `member_id`, `tekanan`, `asma`, `inhaler`, `leher`, `kulit`, `kulit_jabarkan`, `selain_diatas`, `selain_jabarkan`, `alergi`, `alergi_jabarkan`, `hamil`, `usia_kandungan`, `kontak_lens`, `melepas_lens`, `level`, `spesial`, `jawaban`, `tidak_menyembunyikan`, `tanggung_jawab`) VALUES
-(1, 1, 1, 1, 2, 2, 2, '', 2, '', 2, '', 2, '', 1, 2, 1, 1, 1, 1, 1),
+(1, 1, 2, 1, 1, 2, 2, '', 2, '', 2, '', 2, '', 1, 2, 1, 1, 1, 1, 1),
 (2, 3, 2, 2, 2, 2, 2, '', 2, '', 2, '', 2, '', 2, 2, 3, 2, 1, 1, 1),
 (3, 0, 2, 2, 2, 2, 2, '', 2, '', 2, '', 2, '', 1, 1, 3, 1, 1, 1, 1),
 (4, 0, 2, 2, 2, 2, 2, '', 2, '', 2, '', 2, '', 2, 2, 3, 2, 1, 1, 1),
@@ -879,51 +887,86 @@ INSERT INTO `statement` (`statement_id`, `member_id`, `tekanan`, `asma`, `inhale
 (14, 0, 1, 1, 2, 2, 2, '', 2, '', 2, '', 2, '', 1, 2, 1, 1, 1, 1, 1),
 (15, 0, 1, 1, 2, 2, 2, '', 2, '', 2, '', 2, '', 1, 2, 1, 1, 1, 1, 1),
 (16, 0, 1, 1, 2, 2, 2, '', 2, '', 2, '', 2, '', 1, 2, 1, 1, 1, 1, 1),
-(17, 0, 1, 1, 2, 2, 2, '', 0, '', 2, '', 2, '', 1, 2, 1, 1, 1, 1, 1);
+(17, 0, 1, 1, 2, 2, 2, '', 0, '', 2, '', 2, '', 1, 2, 1, 1, 1, 1, 1),
+(18, 0, 1, 1, 2, 2, 2, '', 0, '', 2, '', 2, '', 1, 2, 1, 1, 1, 1, 1),
+(19, 9, 2, 1, 2, 2, 2, '', 2, '', 2, '', 2, '', 2, 1, 3, 2, 2, 2, 2),
+(20, 0, 2, 1, 2, 2, 2, '', 0, '', 2, '', 2, '', 2, 1, 3, 2, 2, 2, 2),
+(21, 0, 2, 1, 2, 2, 2, '', 0, '', 2, '', 2, '', 2, 1, 3, 2, 2, 2, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status`
+-- Struktur dari tabel `statement_order`
 --
 
-CREATE TABLE `status` (
-  `status_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `statement_order` (
+`statement_id` int(11) NOT NULL,
+  `cust_id` int(11) NOT NULL,
+  `tekanan` int(11) NOT NULL,
+  `asma` int(11) NOT NULL,
+  `inhaler` int(11) NOT NULL,
+  `leher` int(11) NOT NULL,
+  `kulit` int(11) NOT NULL,
+  `kulit_jabarkan` varchar(100) NOT NULL,
+  `selain_diatas` int(11) NOT NULL,
+  `selain_jabarkan` varchar(100) NOT NULL,
+  `alergi` int(11) NOT NULL,
+  `alergi_jabarkan` varchar(100) NOT NULL,
+  `hamil` int(11) NOT NULL,
+  `usia_kandungan` varchar(100) NOT NULL,
+  `kontak_lens` int(11) NOT NULL,
+  `melepas_lens` int(11) NOT NULL,
+  `level` int(11) NOT NULL,
+  `spesial` int(11) NOT NULL,
+  `jawaban` int(11) NOT NULL,
+  `tidak_menyembunyikan` int(11) NOT NULL,
+  `tanggung_jawab` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `status`
+--
+
+CREATE TABLE IF NOT EXISTS `status` (
+`status_id` int(11) NOT NULL,
   `status_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `suppliers`
+-- Struktur dari tabel `suppliers`
 --
 
-CREATE TABLE `suppliers` (
-  `supplier_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `suppliers` (
+`supplier_id` int(11) NOT NULL,
   `supplier_name` varchar(50) NOT NULL,
   `supplier_phone` int(11) NOT NULL,
   `supplier_email` varchar(100) NOT NULL,
   `supplier_addres` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `suppliers`
+-- Dumping data untuk tabel `suppliers`
 --
 
 INSERT INTO `suppliers` (`supplier_id`, `supplier_name`, `supplier_phone`, `supplier_email`, `supplier_addres`) VALUES
 (10, 'Supplier 3', 2147483647, 'supplier3@gmail.com', 'Jl.Embong Malang'),
 (7, 'Supplier 1', 2147483647, 'supplier1@gmail.com', 'Jl.majapahit'),
 (9, 'Supplier 2', 2147483647, 'suppliler2@gmail.com', 'Jl.Sudirman\r\n'),
-(12, 'Supplier Testing 1', 123456789, 'suppliertesting1@gmail.com', 'Jl. Gubernur Suryo, Surabaya');
+(12, 'Supplier Testing 1', 123456789, 'suppliertesting1@gmail.com', 'Jl. Gubernur Suryo, Surabaya'),
+(13, 'Toko A', 123, 'a@d.c', 'a');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transactions`
+-- Struktur dari tabel `transactions`
 --
 
-CREATE TABLE `transactions` (
-  `transaction_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `transactions` (
+`transaction_id` int(11) NOT NULL,
   `branch_id` int(11) NOT NULL,
   `member_id` int(11) NOT NULL,
   `transaction_date` datetime NOT NULL,
@@ -940,91 +983,105 @@ CREATE TABLE `transactions` (
   `bank_account_number` varchar(100) NOT NULL,
   `transaction_code` int(11) NOT NULL,
   `flag_code` int(1) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data untuk tabel `transactions`
+--
+
+INSERT INTO `transactions` (`transaction_id`, `branch_id`, `member_id`, `transaction_date`, `transaction_total`, `transaction_discount`, `disc_member`, `transaction_grand_total`, `transaction_payment`, `transaction_change`, `transaction_disc_nominal`, `payment_method_id`, `bank_id`, `user_id`, `bank_account_number`, `transaction_code`, `flag_code`) VALUES
+(1, 9, 9, '2017-08-02 00:00:00', 9, 9, 9, 9, 9, 9, 99, 9, 9, 9, '9', 9, 9);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transactions_tmp`
+-- Struktur dari tabel `transactions_tmp`
 --
 
-CREATE TABLE `transactions_tmp` (
-  `transaction_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `transactions_tmp` (
+`transaction_id` int(11) NOT NULL,
   `member_id` int(11) NOT NULL,
   `branch_id` int(11) NOT NULL,
   `pijat` int(11) NOT NULL,
   `pijat_price` int(11) NOT NULL,
   `transaction_date` datetime NOT NULL,
-  `transaction_code` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `transaction_code` int(11) NOT NULL,
+  `rombongan` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61 ;
 
 --
--- Dumping data for table `transactions_tmp`
+-- Dumping data untuk tabel `transactions_tmp`
 --
 
-INSERT INTO `transactions_tmp` (`transaction_id`, `member_id`, `branch_id`, `pijat`, `pijat_price`, `transaction_date`, `transaction_code`) VALUES
-(1, 26, 7, 0, 0, '2017-04-17 00:00:00', 0),
-(2, 26, 7, 0, 0, '2017-04-17 00:00:00', 0),
-(3, 26, 7, 0, 0, '2017-04-17 00:00:00', 0),
-(4, 26, 7, 0, 0, '2017-04-17 00:00:00', 0),
-(5, 26, 7, 0, 0, '2017-04-17 00:00:00', 0),
-(6, 26, 7, 0, 0, '2017-04-17 00:00:00', 0),
-(7, 26, 7, 0, 0, '2017-04-17 00:00:00', 0),
-(8, 26, 7, 2, 32, '2017-04-17 00:00:00', 0),
-(9, 26, 7, 2, 32, '2017-04-17 00:00:00', 0),
-(10, 1, 7, 4, 24, '2017-04-17 00:00:00', 0),
-(11, 2, 7, 4, 24, '2017-04-17 00:00:00', 0),
-(12, 3, 7, 3, 23, '2017-04-17 00:00:00', 0),
-(13, 2, 7, 2, 32, '2017-04-17 00:00:00', 0),
-(14, 1, 7, 2, 32, '2017-04-17 00:00:00', 0),
-(15, 2, 7, 2, 32, '2017-04-17 00:00:00', 0),
-(16, 2, 7, 2, 32, '2017-04-17 00:00:00', 0),
-(17, 3, 7, 3, 23, '2017-04-17 00:00:00', 0),
-(18, 2, 7, 1, 32, '2017-04-17 00:00:00', 0),
-(19, 2, 7, 1, 32, '2017-04-17 00:00:00', 0),
-(20, 3, 7, 2, 32, '2017-04-17 00:00:00', 0),
-(21, 1, 7, 2, 32, '2017-04-17 00:00:00', 0),
-(22, 1, 7, 3, 23, '2017-04-18 00:00:00', 0),
-(23, 1, 7, 3, 23, '2017-04-18 00:00:00', 0),
-(24, 1, 7, 3, 23, '2017-04-18 00:00:00', 0),
-(25, 1, 7, 3, 23, '2017-04-18 00:00:00', 0),
-(26, 2, 6, 4, 24, '2017-04-18 00:00:00', 0),
-(27, 2, 6, 4, 24, '2017-04-18 00:00:00', 0),
-(28, 3, 7, 2, 32, '2017-04-18 00:00:00', 0),
-(29, 0, 7, 2, 32, '2017-04-18 00:00:00', 0),
-(30, 2, 7, 2, 32, '2017-04-18 00:00:00', 0),
-(31, 1, 5, 3, 23, '2017-04-18 00:00:00', 0),
-(32, 3, 7, 2, 32, '2017-04-18 00:00:00', 0),
-(33, 3, 7, 2, 32, '2017-04-18 00:00:00', 0),
-(34, 1, 7, 3, 23, '2017-04-18 00:00:00', 0),
-(35, 0, 7, 2, 32, '2017-04-18 00:00:00', 0),
-(36, 0, 7, 0, 0, '1970-01-01 00:00:00', 0),
-(37, 1, 7, 3, 0, '1970-01-01 00:00:00', 0),
-(38, 6, 7, 1, 0, '1970-01-01 00:00:00', 0),
-(39, 1, 7, 3, 0, '1970-01-01 00:00:00', 0),
-(40, 1, 7, 2, 32000, '2017-05-27 00:00:00', 0),
-(41, 3, 7, 0, 0, '2017-05-28 00:00:00', 0),
-(42, 3, 7, 0, 0, '2017-05-28 00:00:00', 0),
-(43, 1, 7, 1, 32000, '2017-07-20 00:00:00', 0),
-(44, 7, 8, 6, 1500000, '2017-07-20 00:00:00', 0),
-(45, 3, 5, 1, 32000, '2017-07-23 00:00:00', 0),
-(46, 1, 11, 1, 0, '2017-07-29 00:00:00', 0),
-(47, 1, 7, 6, 0, '2017-07-31 00:00:00', 0),
-(48, 1, 11, 5, 0, '2017-07-31 00:00:00', 0),
-(49, 1, 7, 1, 0, '2017-08-01 00:00:00', 0),
-(50, 1, 11, 1, 0, '2017-08-01 00:00:00', 0),
-(51, 1, 11, 1, 0, '2017-08-01 00:00:00', 0),
-(52, 1, 5, 1, 0, '2017-08-01 00:00:00', 0),
-(53, 1, 6, 1, 0, '2017-08-01 00:00:00', 0),
-(54, 1, 7, 5, 0, '2017-08-01 00:00:00', 0);
+INSERT INTO `transactions_tmp` (`transaction_id`, `member_id`, `branch_id`, `pijat`, `pijat_price`, `transaction_date`, `transaction_code`, `rombongan`) VALUES
+(1, 26, 7, 0, 0, '2017-04-17 00:00:00', 0, 0),
+(2, 26, 7, 0, 0, '2017-04-17 00:00:00', 0, 0),
+(3, 26, 7, 0, 0, '2017-04-17 00:00:00', 0, 0),
+(4, 26, 7, 0, 0, '2017-04-17 00:00:00', 0, 0),
+(5, 26, 7, 0, 0, '2017-04-17 00:00:00', 0, 0),
+(6, 26, 7, 0, 0, '2017-04-17 00:00:00', 0, 0),
+(7, 26, 7, 0, 0, '2017-04-17 00:00:00', 0, 0),
+(8, 26, 7, 2, 32, '2017-04-17 00:00:00', 0, 0),
+(9, 26, 7, 2, 32, '2017-04-17 00:00:00', 0, 0),
+(10, 1, 7, 4, 24, '2017-04-17 00:00:00', 0, 0),
+(11, 2, 7, 4, 24, '2017-04-17 00:00:00', 0, 0),
+(12, 3, 7, 3, 23, '2017-04-17 00:00:00', 0, 0),
+(13, 2, 7, 2, 32, '2017-04-17 00:00:00', 0, 0),
+(14, 1, 7, 2, 32, '2017-04-17 00:00:00', 0, 0),
+(15, 2, 7, 2, 32, '2017-04-17 00:00:00', 0, 0),
+(16, 2, 7, 2, 32, '2017-04-17 00:00:00', 0, 0),
+(17, 3, 7, 3, 23, '2017-04-17 00:00:00', 0, 0),
+(18, 2, 7, 1, 32, '2017-04-17 00:00:00', 0, 0),
+(19, 2, 7, 1, 32, '2017-04-17 00:00:00', 0, 0),
+(20, 3, 7, 2, 32, '2017-04-17 00:00:00', 0, 0),
+(21, 1, 7, 2, 32, '2017-04-17 00:00:00', 0, 0),
+(22, 1, 7, 3, 23, '2017-04-18 00:00:00', 0, 0),
+(23, 1, 7, 3, 23, '2017-04-18 00:00:00', 0, 0),
+(24, 1, 7, 3, 23, '2017-04-18 00:00:00', 0, 0),
+(25, 1, 7, 3, 23, '2017-04-18 00:00:00', 0, 0),
+(26, 2, 6, 4, 24, '2017-04-18 00:00:00', 0, 0),
+(27, 2, 6, 4, 24, '2017-04-18 00:00:00', 0, 0),
+(28, 3, 7, 2, 32, '2017-04-18 00:00:00', 0, 0),
+(29, 0, 7, 2, 32, '2017-04-18 00:00:00', 0, 0),
+(30, 2, 7, 2, 32, '2017-04-18 00:00:00', 0, 0),
+(31, 1, 5, 3, 23, '2017-04-18 00:00:00', 0, 0),
+(32, 3, 7, 2, 32, '2017-04-18 00:00:00', 0, 0),
+(33, 3, 7, 2, 32, '2017-04-18 00:00:00', 0, 0),
+(34, 1, 7, 3, 23, '2017-04-18 00:00:00', 0, 0),
+(35, 0, 7, 2, 32, '2017-04-18 00:00:00', 0, 0),
+(36, 0, 7, 0, 0, '1970-01-01 00:00:00', 0, 0),
+(37, 1, 7, 3, 0, '1970-01-01 00:00:00', 0, 0),
+(38, 6, 7, 1, 0, '1970-01-01 00:00:00', 0, 0),
+(39, 1, 7, 3, 0, '1970-01-01 00:00:00', 0, 0),
+(40, 1, 7, 2, 32000, '2017-05-27 00:00:00', 0, 0),
+(41, 3, 7, 0, 0, '2017-05-28 00:00:00', 0, 0),
+(42, 3, 7, 0, 0, '2017-05-28 00:00:00', 0, 0),
+(43, 1, 7, 1, 32000, '2017-07-20 00:00:00', 0, 0),
+(44, 7, 8, 6, 1500000, '2017-07-20 00:00:00', 0, 0),
+(45, 3, 5, 1, 32000, '2017-07-23 00:00:00', 0, 0),
+(46, 1, 11, 1, 0, '2017-07-29 00:00:00', 0, 0),
+(47, 1, 7, 6, 0, '2017-07-31 00:00:00', 0, 0),
+(48, 1, 11, 5, 0, '2017-07-31 00:00:00', 0, 0),
+(49, 1, 7, 1, 0, '2017-08-01 00:00:00', 0, 0),
+(50, 1, 11, 1, 0, '2017-08-01 00:00:00', 0, 0),
+(51, 1, 11, 1, 0, '2017-08-01 00:00:00', 0, 0),
+(52, 1, 5, 1, 0, '2017-08-01 00:00:00', 0, 0),
+(53, 1, 6, 1, 0, '2017-08-01 00:00:00', 0, 0),
+(54, 1, 7, 5, 0, '2017-08-01 00:00:00', 0, 0),
+(55, 1, 11, 2, 0, '2017-08-02 00:00:00', 0, 0),
+(56, 9, 5, 0, 0, '2016-08-23 00:00:00', 0, 0),
+(57, 1, 6, 0, 0, '2017-08-04 00:00:00', 0, 0),
+(58, 1, 6, 0, 0, '2017-08-04 00:00:00', 0, 0),
+(59, 1, 5, 0, 0, '2017-08-04 00:00:00', 0, 0),
+(60, 9, 5, 0, 0, '2017-08-04 14:26:00', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaction_bills`
+-- Struktur dari tabel `transaction_bills`
 --
 
-CREATE TABLE `transaction_bills` (
+CREATE TABLE IF NOT EXISTS `transaction_bills` (
   `transaction_id` int(11) NOT NULL,
   `table_id` int(11) NOT NULL,
   `member_id` int(11) NOT NULL,
@@ -1037,11 +1094,11 @@ CREATE TABLE `transaction_bills` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaction_details`
+-- Struktur dari tabel `transaction_details`
 --
 
-CREATE TABLE `transaction_details` (
-  `transaction_detail_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `transaction_details` (
+`transaction_detail_id` int(11) NOT NULL,
   `transaction_id` int(11) NOT NULL,
   `menu_id` int(11) NOT NULL,
   `transaction_detail_original_price` int(11) NOT NULL,
@@ -1051,15 +1108,15 @@ CREATE TABLE `transaction_details` (
   `transaction_detail_grand_price` int(11) NOT NULL,
   `transaction_detail_qty` int(11) NOT NULL,
   `transaction_detail_total` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaction_histories`
+-- Struktur dari tabel `transaction_histories`
 --
 
-CREATE TABLE `transaction_histories` (
+CREATE TABLE IF NOT EXISTS `transaction_histories` (
   `transaction_id` int(11) NOT NULL,
   `table_id` int(11) NOT NULL,
   `branch_id` int(11) NOT NULL,
@@ -1082,16 +1139,16 @@ CREATE TABLE `transaction_histories` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaction_order_types`
+-- Struktur dari tabel `transaction_order_types`
 --
 
-CREATE TABLE `transaction_order_types` (
-  `tot_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `transaction_order_types` (
+`tot_id` int(11) NOT NULL,
   `tot_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `transaction_order_types`
+-- Dumping data untuk tabel `transaction_order_types`
 --
 
 INSERT INTO `transaction_order_types` (`tot_id`, `tot_name`) VALUES
@@ -1102,24 +1159,24 @@ INSERT INTO `transaction_order_types` (`tot_id`, `tot_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaction_summary`
+-- Struktur dari tabel `transaction_summary`
 --
 
-CREATE TABLE `transaction_summary` (
-  `id_transaction_summary` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `transaction_summary` (
+`id_transaction_summary` int(11) NOT NULL,
   `transaction_grtotal_summary` varchar(45) NOT NULL,
   `transaction_summarycol` varchar(45) NOT NULL,
   `transaction_total` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaction_tmp_details`
+-- Struktur dari tabel `transaction_tmp_details`
 --
 
-CREATE TABLE `transaction_tmp_details` (
-  `transaction_detail_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `transaction_tmp_details` (
+`transaction_detail_id` int(11) NOT NULL,
   `transaction_id` int(11) NOT NULL,
   `pijat_id` int(11) NOT NULL,
   `transaction_detail_item_qty` int(11) NOT NULL,
@@ -1131,10 +1188,10 @@ CREATE TABLE `transaction_tmp_details` (
   `transaction_detail_qty` int(11) NOT NULL,
   `transaction_detail_total` int(11) NOT NULL,
   `transaction_detail_status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
 
 --
--- Dumping data for table `transaction_tmp_details`
+-- Dumping data untuk tabel `transaction_tmp_details`
 --
 
 INSERT INTO `transaction_tmp_details` (`transaction_detail_id`, `transaction_id`, `pijat_id`, `transaction_detail_item_qty`, `transaction_detail_original_price`, `transaction_detail_margin_price`, `transaction_detail_price`, `transaction_detail_price_discount`, `transaction_detail_grand_price`, `transaction_detail_qty`, `transaction_detail_total`, `transaction_detail_status`) VALUES
@@ -1163,16 +1220,43 @@ INSERT INTO `transaction_tmp_details` (`transaction_detail_id`, `transaction_id`
 (23, 52, 0, 1, 1, 15000, 0, 0, 0, 0, 15000, 0),
 (24, 52, 0, 2, 1, 25000, 0, 0, 0, 0, 25000, 0),
 (25, 53, 0, 2, 4, 25000, 0, 0, 0, 0, 100000, 0),
-(26, 54, 0, 1, 3, 15000, 0, 0, 0, 0, 45000, 0);
+(26, 54, 0, 1, 3, 15000, 0, 0, 0, 0, 45000, 0),
+(27, 55, 0, 1, 1, 21000, 0, 0, 0, 0, 21000, 0),
+(28, 56, 0, 39, 4, 0, 0, 0, 0, 0, 0, 0),
+(29, 56, 0, 40, 4, 25000, 0, 0, 0, 0, 100000, 0),
+(30, 57, 0, 39, 4, 0, 0, 0, 0, 0, 0, 0),
+(31, 57, 0, 40, 4, 25000, 0, 0, 0, 0, 100000, 0),
+(32, 58, 0, 39, 4, 0, 0, 0, 0, 0, 0, 0),
+(33, 58, 0, 40, 4, 25000, 0, 0, 0, 0, 100000, 0),
+(34, 59, 0, 39, 4, 0, 0, 0, 0, 0, 0, 0),
+(35, 59, 0, 40, 4, 25000, 0, 0, 0, 0, 100000, 0),
+(36, 60, 0, 39, 4, 0, 0, 0, 0, 0, 0, 0),
+(37, 60, 0, 40, 4, 25000, 0, 0, 0, 0, 100000, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `Transaksi_tmp_details_cs`
 --
 
-CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `Transaksi_tmp_details_cs` (
+  `detail_trans_cs_id` int(11) NOT NULL,
+  `transaction_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `member_id` int(11) NOT NULL,
+  `pijat_id` int(11) NOT NULL,
+  `ruangan_id` int(11) NOT NULL,
+  `statement_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+`user_id` int(11) NOT NULL,
   `user_type_id` int(11) DEFAULT NULL,
   `user_login` varchar(100) DEFAULT NULL,
   `user_password` varchar(100) DEFAULT NULL,
@@ -1182,10 +1266,10 @@ CREATE TABLE `users` (
   `user_img` text NOT NULL,
   `user_active_status` int(11) NOT NULL,
   `branch_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`user_id`, `user_type_id`, `user_login`, `user_password`, `user_name`, `user_code`, `user_phone`, `user_img`, `user_active_status`, `branch_id`) VALUES
@@ -1200,16 +1284,16 @@ INSERT INTO `users` (`user_id`, `user_type_id`, `user_login`, `user_password`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_types`
+-- Struktur dari tabel `user_types`
 --
 
-CREATE TABLE `user_types` (
-  `user_type_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `user_types` (
+`user_type_id` int(11) NOT NULL,
   `user_type_name` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `user_types`
+-- Dumping data untuk tabel `user_types`
 --
 
 INSERT INTO `user_types` (`user_type_id`, `user_type_name`) VALUES
@@ -1227,265 +1311,271 @@ INSERT INTO `user_types` (`user_type_id`, `user_type_name`) VALUES
 -- Indexes for table `banks`
 --
 ALTER TABLE `banks`
-  ADD PRIMARY KEY (`bank_id`);
+ ADD PRIMARY KEY (`bank_id`);
 
 --
 -- Indexes for table `branches`
 --
 ALTER TABLE `branches`
-  ADD PRIMARY KEY (`branch_id`);
+ ADD PRIMARY KEY (`branch_id`);
 
 --
 -- Indexes for table `infrastruktur`
 --
 ALTER TABLE `infrastruktur`
-  ADD PRIMARY KEY (`infrastruktur_id`);
+ ADD PRIMARY KEY (`infrastruktur_id`);
 
 --
 -- Indexes for table `item`
 --
 ALTER TABLE `item`
-  ADD PRIMARY KEY (`item_id`);
+ ADD PRIMARY KEY (`item_id`);
 
 --
 -- Indexes for table `item_stocks`
 --
 ALTER TABLE `item_stocks`
-  ADD PRIMARY KEY (`item_stock_id`);
+ ADD PRIMARY KEY (`item_stock_id`);
 
 --
 -- Indexes for table `journals`
 --
 ALTER TABLE `journals`
-  ADD PRIMARY KEY (`journal_id`);
+ ADD PRIMARY KEY (`journal_id`);
 
 --
 -- Indexes for table `journal_types`
 --
 ALTER TABLE `journal_types`
-  ADD PRIMARY KEY (`journal_type_id`);
+ ADD PRIMARY KEY (`journal_type_id`);
 
 --
 -- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
-  ADD PRIMARY KEY (`kategori_id`);
+ ADD PRIMARY KEY (`kategori_id`);
 
 --
 -- Indexes for table `kategori_paket_pijat`
 --
 ALTER TABLE `kategori_paket_pijat`
-  ADD PRIMARY KEY (`kategori_paket_pijat_id`);
+ ADD PRIMARY KEY (`kategori_paket_pijat_id`);
 
 --
 -- Indexes for table `konversi_item`
 --
 ALTER TABLE `konversi_item`
-  ADD PRIMARY KEY (`konversi_id`);
+ ADD PRIMARY KEY (`konversi_id`);
 
 --
 -- Indexes for table `members`
 --
 ALTER TABLE `members`
-  ADD PRIMARY KEY (`member_id`);
+ ADD PRIMARY KEY (`member_id`);
 
 --
 -- Indexes for table `member_items`
 --
 ALTER TABLE `member_items`
-  ADD PRIMARY KEY (`member_item_id`);
+ ADD PRIMARY KEY (`member_item_id`);
 
 --
 -- Indexes for table `office`
 --
 ALTER TABLE `office`
-  ADD PRIMARY KEY (`office_id`);
+ ADD PRIMARY KEY (`office_id`);
 
 --
 -- Indexes for table `order`
 --
 ALTER TABLE `order`
-  ADD PRIMARY KEY (`order_id`);
+ ADD PRIMARY KEY (`order_id`);
 
 --
 -- Indexes for table `order_tmp`
 --
 ALTER TABLE `order_tmp`
-  ADD PRIMARY KEY (`order_id`);
+ ADD PRIMARY KEY (`order_id`);
 
 --
 -- Indexes for table `paket_pijat`
 --
 ALTER TABLE `paket_pijat`
-  ADD PRIMARY KEY (`paket_pijat_id`);
+ ADD PRIMARY KEY (`paket_pijat_id`);
 
 --
 -- Indexes for table `paket_pijat_details`
 --
 ALTER TABLE `paket_pijat_details`
-  ADD PRIMARY KEY (`paket_pijat_detail_id`);
+ ADD PRIMARY KEY (`paket_pijat_detail_id`);
 
 --
 -- Indexes for table `partners`
 --
 ALTER TABLE `partners`
-  ADD PRIMARY KEY (`partner_id`);
+ ADD PRIMARY KEY (`partner_id`);
 
 --
 -- Indexes for table `payments`
 --
 ALTER TABLE `payments`
-  ADD PRIMARY KEY (`payment_id`);
+ ADD PRIMARY KEY (`payment_id`);
 
 --
 -- Indexes for table `payment_methods`
 --
 ALTER TABLE `payment_methods`
-  ADD PRIMARY KEY (`payment_method_id`);
+ ADD PRIMARY KEY (`payment_method_id`);
 
 --
 -- Indexes for table `pemijat`
 --
 ALTER TABLE `pemijat`
-  ADD PRIMARY KEY (`pemijat_id`);
+ ADD PRIMARY KEY (`pemijat_id`);
 
 --
 -- Indexes for table `permits`
 --
 ALTER TABLE `permits`
-  ADD PRIMARY KEY (`permit_id`);
+ ADD PRIMARY KEY (`permit_id`);
 
 --
 -- Indexes for table `pijat`
 --
 ALTER TABLE `pijat`
-  ADD PRIMARY KEY (`pijat_id`);
+ ADD PRIMARY KEY (`pijat_id`);
 
 --
 -- Indexes for table `pijat_details`
 --
 ALTER TABLE `pijat_details`
-  ADD PRIMARY KEY (`pijat_detail_id`);
+ ADD PRIMARY KEY (`pijat_detail_id`);
 
 --
 -- Indexes for table `purchases`
 --
 ALTER TABLE `purchases`
-  ADD PRIMARY KEY (`purchase_id`);
+ ADD PRIMARY KEY (`purchase_id`);
 
 --
 -- Indexes for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  ADD PRIMARY KEY (`reservasi_id`);
+ ADD PRIMARY KEY (`reservasi_id`);
 
 --
 -- Indexes for table `reserved`
 --
 ALTER TABLE `reserved`
-  ADD PRIMARY KEY (`reserved_id`);
+ ADD PRIMARY KEY (`reserved_id`);
 
 --
 -- Indexes for table `ruangan`
 --
 ALTER TABLE `ruangan`
-  ADD PRIMARY KEY (`ruangan_id`);
+ ADD PRIMARY KEY (`ruangan_id`);
 
 --
 -- Indexes for table `ruangan_infrastruktur`
 --
 ALTER TABLE `ruangan_infrastruktur`
-  ADD PRIMARY KEY (`ruangan_infrastruktur_id`);
+ ADD PRIMARY KEY (`ruangan_infrastruktur_id`);
 
 --
 -- Indexes for table `satuan`
 --
 ALTER TABLE `satuan`
-  ADD PRIMARY KEY (`satuan_id`);
+ ADD PRIMARY KEY (`satuan_id`);
 
 --
 -- Indexes for table `side_menus`
 --
 ALTER TABLE `side_menus`
-  ADD PRIMARY KEY (`side_menu_id`);
+ ADD PRIMARY KEY (`side_menu_id`);
 
 --
 -- Indexes for table `statement`
 --
 ALTER TABLE `statement`
-  ADD PRIMARY KEY (`statement_id`);
+ ADD PRIMARY KEY (`statement_id`);
+
+--
+-- Indexes for table `statement_order`
+--
+ALTER TABLE `statement_order`
+ ADD PRIMARY KEY (`statement_id`);
 
 --
 -- Indexes for table `status`
 --
 ALTER TABLE `status`
-  ADD PRIMARY KEY (`status_id`);
+ ADD PRIMARY KEY (`status_id`);
 
 --
 -- Indexes for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  ADD PRIMARY KEY (`supplier_id`);
+ ADD PRIMARY KEY (`supplier_id`);
 
 --
 -- Indexes for table `transactions`
 --
 ALTER TABLE `transactions`
-  ADD PRIMARY KEY (`transaction_id`);
+ ADD PRIMARY KEY (`transaction_id`);
 
 --
 -- Indexes for table `transactions_tmp`
 --
 ALTER TABLE `transactions_tmp`
-  ADD PRIMARY KEY (`transaction_id`);
+ ADD PRIMARY KEY (`transaction_id`);
 
 --
 -- Indexes for table `transaction_bills`
 --
 ALTER TABLE `transaction_bills`
-  ADD PRIMARY KEY (`transaction_id`);
+ ADD PRIMARY KEY (`transaction_id`);
 
 --
 -- Indexes for table `transaction_details`
 --
 ALTER TABLE `transaction_details`
-  ADD PRIMARY KEY (`transaction_detail_id`);
+ ADD PRIMARY KEY (`transaction_detail_id`);
 
 --
 -- Indexes for table `transaction_histories`
 --
 ALTER TABLE `transaction_histories`
-  ADD PRIMARY KEY (`transaction_id`);
+ ADD PRIMARY KEY (`transaction_id`);
 
 --
 -- Indexes for table `transaction_order_types`
 --
 ALTER TABLE `transaction_order_types`
-  ADD PRIMARY KEY (`tot_id`);
+ ADD PRIMARY KEY (`tot_id`);
 
 --
 -- Indexes for table `transaction_summary`
 --
 ALTER TABLE `transaction_summary`
-  ADD PRIMARY KEY (`id_transaction_summary`);
+ ADD PRIMARY KEY (`id_transaction_summary`);
 
 --
 -- Indexes for table `transaction_tmp_details`
 --
 ALTER TABLE `transaction_tmp_details`
-  ADD PRIMARY KEY (`transaction_detail_id`);
+ ADD PRIMARY KEY (`transaction_detail_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+ ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `user_types`
 --
 ALTER TABLE `user_types`
-  ADD PRIMARY KEY (`user_type_id`);
+ ADD PRIMARY KEY (`user_type_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1495,207 +1585,212 @@ ALTER TABLE `user_types`
 -- AUTO_INCREMENT for table `banks`
 --
 ALTER TABLE `banks`
-  MODIFY `bank_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `bank_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `branches`
 --
 ALTER TABLE `branches`
-  MODIFY `branch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+MODIFY `branch_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `infrastruktur`
 --
 ALTER TABLE `infrastruktur`
-  MODIFY `infrastruktur_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+MODIFY `infrastruktur_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT for table `item_stocks`
 --
 ALTER TABLE `item_stocks`
-  MODIFY `item_stock_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+MODIFY `item_stock_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `journals`
 --
 ALTER TABLE `journals`
-  MODIFY `journal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+MODIFY `journal_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `journal_types`
 --
 ALTER TABLE `journal_types`
-  MODIFY `journal_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+MODIFY `journal_type_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `kategori_paket_pijat`
 --
 ALTER TABLE `kategori_paket_pijat`
-  MODIFY `kategori_paket_pijat_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `kategori_paket_pijat_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `konversi_item`
 --
 ALTER TABLE `konversi_item`
-  MODIFY `konversi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+MODIFY `konversi_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `member_items`
 --
 ALTER TABLE `member_items`
-  MODIFY `member_item_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `member_item_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `order_tmp`
 --
 ALTER TABLE `order_tmp`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `paket_pijat`
 --
 ALTER TABLE `paket_pijat`
-  MODIFY `paket_pijat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `paket_pijat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `paket_pijat_details`
 --
 ALTER TABLE `paket_pijat_details`
-  MODIFY `paket_pijat_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+MODIFY `paket_pijat_detail_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `partners`
 --
 ALTER TABLE `partners`
-  MODIFY `partner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+MODIFY `partner_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `payment_methods`
 --
 ALTER TABLE `payment_methods`
-  MODIFY `payment_method_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `payment_method_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `pemijat`
 --
 ALTER TABLE `pemijat`
-  MODIFY `pemijat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `pemijat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `permits`
 --
 ALTER TABLE `permits`
-  MODIFY `permit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=769;
+MODIFY `permit_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=769;
 --
 -- AUTO_INCREMENT for table `pijat`
 --
 ALTER TABLE `pijat`
-  MODIFY `pijat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+MODIFY `pijat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `pijat_details`
 --
 ALTER TABLE `pijat_details`
-  MODIFY `pijat_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+MODIFY `pijat_detail_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `purchase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `purchase_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `reservasi_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `reservasi_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `reserved`
 --
 ALTER TABLE `reserved`
-  MODIFY `reserved_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+MODIFY `reserved_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `ruangan`
 --
 ALTER TABLE `ruangan`
-  MODIFY `ruangan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+MODIFY `ruangan_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `ruangan_infrastruktur`
 --
 ALTER TABLE `ruangan_infrastruktur`
-  MODIFY `ruangan_infrastruktur_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+MODIFY `ruangan_infrastruktur_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `satuan`
 --
 ALTER TABLE `satuan`
-  MODIFY `satuan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+MODIFY `satuan_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `side_menus`
 --
 ALTER TABLE `side_menus`
-  MODIFY `side_menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+MODIFY `side_menu_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `statement`
 --
 ALTER TABLE `statement`
-  MODIFY `statement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+MODIFY `statement_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `statement_order`
+--
+ALTER TABLE `statement_order`
+MODIFY `statement_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `status`
 --
 ALTER TABLE `status`
-  MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `supplier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+MODIFY `supplier_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `transactions_tmp`
 --
 ALTER TABLE `transactions_tmp`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=61;
 --
 -- AUTO_INCREMENT for table `transaction_details`
 --
 ALTER TABLE `transaction_details`
-  MODIFY `transaction_detail_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `transaction_detail_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `transaction_order_types`
 --
 ALTER TABLE `transaction_order_types`
-  MODIFY `tot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `tot_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `transaction_summary`
 --
 ALTER TABLE `transaction_summary`
-  MODIFY `id_transaction_summary` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_transaction_summary` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `transaction_tmp_details`
 --
 ALTER TABLE `transaction_tmp_details`
-  MODIFY `transaction_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+MODIFY `transaction_detail_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT for table `user_types`
 --
 ALTER TABLE `user_types`
-  MODIFY `user_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+MODIFY `user_type_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

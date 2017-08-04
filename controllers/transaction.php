@@ -314,21 +314,26 @@ switch ($page) {
           $item_qty     = $_POST['item_qty'];
           $member_id    = $_POST['i_member'];
           $tanggal      = $_POST['i_date'];
+          $jam      = $_POST['i_clock'];
           $tanggal      = format_back_date($tanggal);
+          $tanggal = $tanggal." ".$jam;
           $branch_id    = $_POST['i_branch'];
-          $pijat_id     = $_POST['i_pijat'];
+          // $pijat_id     = $_POST['i_pijat'];
           $reserved_id  = $_POST['reserved_id'];
           $item_price   = $_POST['item_price'];
           $pijat_price  = $_POST['pijat_price'];
+          $rombongan    = $_POST['n_qty'];
           // var_dump($_POST);
+                               // '$pijat_id',
           $data_transaction = "'',
                                '$member_id',
                                '$branch_id',
-                               '$pijat_id',
+                               '',
                                '$pijat_price',
                                '$tanggal',
                                ''";
           $transaction_id = create_config('transactions_tmp', $data_transaction);
+
 
           // echo $item_qty;
                           
@@ -351,6 +356,22 @@ switch ($page) {
                                         ''";
             create_config('transaction_tmp_details', $data_transaction_detail);
             $i++;
+          }
+
+          for ($i=0; $i < $rombongan; $i++) { 
+            $data_transaction_detail = "'',
+                                        '$transaction_id',
+                                        '',
+                                        '".$item_id[$i]."',
+                                        '".$item_qty[$i]."',
+                                        '".$item_price[$i]."',
+                                        '',
+                                        '',
+                                        '',
+                                        '',                                    
+                                        '".$total."',
+                                        ''";
+            create_config('transaction_tmp_details_cs', $data_transaction_detail);
           }
 
           $data = array(
@@ -376,7 +397,7 @@ switch ($page) {
       $close_button = "member.php?page=list";
       // $print ="print.php?page=statement";
 
-      $id = (isset($_GET['id'])) ? $_GET['id'] : 9;
+      $id = (isset($_GET['id'])) ? $_GET['id'] : null;
       $query_statement = select_statement($id);
 
       if($id){
