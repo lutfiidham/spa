@@ -163,12 +163,16 @@ switch ($page) {
         // for Menu Drop Down Ruangan
         case 'get_ruangan_by':
           $branch_id = $_POST['branch_id'];
+          $i = $_POST['i'];
+
           $q_ruangan = select_ruangan_by($branch_id);
           while ($ruangan = mysql_fetch_array($q_ruangan)) {
             $data[] = array(
                     'ruangan_id' => $ruangan['ruangan_id'], 
                     'ruangan_name' => $ruangan['ruangan_name'], 
                     'available' => $ruangan['available'], 
+                    'idx'                => $i,
+
                     );
           }
           
@@ -178,6 +182,7 @@ switch ($page) {
           case 'get_pemijat_by':
           
           $q_pemijat = select_config('pemijat', '');
+          $i = $_POST['i'];
 
 
             while ($r_pemijat = mysql_fetch_array($q_pemijat)) {
@@ -185,6 +190,27 @@ switch ($page) {
                 'pemijat_id'          => $r_pemijat['pemijat_id'],
                 'pemijat_name'          => $r_pemijat['pemijat_name'],
                 'available'          => $r_pemijat['available'],
+                'idx'                => $i,
+             );
+            }
+            // var_dump($data);
+          echo json_encode($data);
+          break;
+
+          case 'get_pijat':
+          
+          $q_pijat = select_config('pijat', '');
+          $i = $_POST['i'];
+
+
+            while ($r_pijat = mysql_fetch_array($q_pijat)) {
+              $data[] = array(
+                'pijat_id'          => $r_pijat['pijat_id'],
+                'pijat_name'          => $r_pijat['pijat_name'],
+                'pijat_harga'          => $r_pijat['pijat_harga'],
+                'pijat_waktu'          => $r_pijat['pijat_waktu'],
+                'infrastruktur'          => $r_pijat['infrastruktur'],
+                'idx'                => $i,
              );
             }
             // var_dump($data);

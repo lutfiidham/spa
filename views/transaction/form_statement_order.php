@@ -30,7 +30,7 @@
 
 <!-- Content Header (Page header) -->
         
-<div class="row">
+    <div class="row">
                         <!-- right column -->
                       
 

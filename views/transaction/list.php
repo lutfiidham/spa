@@ -209,8 +209,12 @@
   });
 
 	$( "#btnLanjut" ).click(function() {
+
 	  var jml = $("#i_qty").val();
-    $("#form_cs").empty();
+	  var cabang = $("#cabang").val();
+
+	  if (cabang) {
+	  	$("#form_cs").empty();
 
 	for (var i = 0; i < jml; i++) {
 		var no = i+1;
@@ -226,14 +230,14 @@
 										<label for="">Nama : </label>\
 										<div class="input-group">\
 											<input type="text" required class="form-control pull-right number"\
-											id="i_nama_" name="n_nama_" value=""/>\
+											id="i_nama_'+i+'" name="n_nama_'+i+'" value=""/>\
 										</div><!-- /.input group -->\
 									</div>\
 								</div>\
 								<div class="col-md-3">\
 									<div class="form-group">\
 										<label for="">Pemijat :</label>\
-										<select class="selectpicker form-control normal select2" id="i_pemijat_" name="n_pemijat_" required>\
+										<select class="selectpicker form-control normal select2" id="i_pemijat_'+i+'" name="n_pemijat_'+i+'" required>\
 										<option value="">- Pilih Pemijat -</option>\
 											\
 										</select>\
@@ -242,7 +246,7 @@
 								<div class="col-md-3">\
 									<div class="form-group">\
 										<label for="">Ruangan :</label>\
-										<select class="selectpicker form-control normal select2" id="i_ruangan_" name="n_ruangan_" required>\
+										<select class="selectpicker form-control normal select2" id="i_ruangan_'+i+'" name="n_ruangan_'+i+'" required>\
 										<option value="">- Pilih Ruangan -</option>\
 										</select>\
 									</div>\
@@ -251,20 +255,114 @@
 									<div class="form-group">\
 										<label for="">Pijat :</label>\
 										\
-										<select name="i_member" size="1" class="selectpicker form-control normal select2" id="member" required>\
+										<select name="n_pijat" size="1" class="selectpicker form-control normal select2" id="i_pijat_'+i+'" required>\
 										</select>\
 									</div>\
 								</div>\
 								<div class="col-md-1">\
 									<div><label><br></label></div>\
-									<a href="../controllers/transaction.php?page=statement_cs" type="button" data-toggle="modal" data-target="#questioner_" id="btnQ" class="btn btn-info" value="Q">Q&A</a>\
+									<a href="../controllers/transaction.php?page=statement_cs" type="button" data-toggle="modal" data-target="#questioner_" id="btnQ_'+i+'" class="btn btn-info" value="Q">Q&A</a>\
 								</div>\
 							</div>\
 							<!-- End Append -->';
 					    $("#form_cs").append(html);
-					}
+ $("select").select2({
+            placeholder: "Please Select"
+        });
+					
+		$.ajax({
+            type        : "post",
+            url         : "transaction.php?page=get_pemijat_by",
+            data        : {i:i},
+            dataType    : "json",
+            success: function(data){
+            	console.log(data);
+              $('#i_pemijat_'+data[0].idx).empty();
+              $('#i_pemijat_'+data[0].idx).append('<option value="0">Pilih Pemijat</option>');
+
+              for (var i = 0; i < data.length; i++) {
+                if (data[i].available) {
+                $('#i_pemijat_'+data[0].idx).append('<option value="'+data[i].pemijat_id+'">'+data[i].pemijat_name+'</option>');	
+            }else{
+
+                $('#i_pemijat_'+data[0].idx).append('<option disabled="disabled" value="'+data[i].pemijat_id+'">'+data[i].pemijat_name+'</option>');
+            }
+              }
+
+            },
+            error: function(data)
+            {
+              console.log(data);
+
+              alert("error");
+            }
+          });
+
+		$.ajax({
+            type        : "post",
+            url         : "transaction.php?page=get_ruangan_by",
+            data        : {i:i, branch_id:cabang},
+            dataType    : "json",
+            success: function(data){
+            	console.log(data);
+              $('#i_ruangan_'+data[0].idx).empty();
+              $('#i_ruangan_'+data[0].idx).append('<option value="0">-Pilih Ruangan-</option>');
+
+              for (var i = 0; i < data.length; i++) {
+                if (data[i].available) {
+                $('#i_ruangan_'+data[0].idx).append('<option value="'+data[i].ruangan_id+'">'+data[i].ruangan_name+'</option>');	
+            }else{
+
+                $('#i_ruangan_'+data[0].idx).append('<option disabled="disabled" value="'+data[i].ruangan_id+'">'+data[i].ruangan_name+'</option>');
+            }
+              }
+
+            },
+            error: function(data)
+            {
+              console.log(data);
+
+              alert("error");
+            }
+          });
+
+		$.ajax({
+            type        : "post",
+            url         : "transaction.php?page=get_pijat",
+            data        : {i:i},
+            dataType    : "json",
+            success: function(data){
+            	console.log(data);
+              $('#i_pijat_'+data[0].idx).empty();
+              $('#i_pijat_'+data[0].idx).append('<option value="0">-Pilih Ruangan-</option>');
+
+              for (var i = 0; i < data.length; i++) {
+                
+                $('#i_pijat_'+data[0].idx).append('<option value="'+data[i].pijat_id+'">'+data[i].pijat_name+'</option>');	
+            
+              }
+
+            },
+            error: function(data)
+            {
+              console.log(data);
+
+              alert("error");
+            }
+          });
+
+		} //for
+	}else{
+		alert('Pilih Cabang Terlebih Dahulu');
+	}
+	
+
+
+    
 
 	});
+
+	
 
 	function set_harga() {
 		var i_pijat = $('#i_pijat').val();
@@ -645,37 +743,80 @@ $(document).ready(function(){
     'default': 'now'
 	});
 
-	$( "#cabang" ).change(function() {
-	  var cabang_id = $('#cabang').val();
-          // alert(item_id);
-          $.ajax({
-            type        : "post",
-            url         : "transaction.php?page=get_ruangan_by",
-            data        : {branch_id:cabang_id},
-            dataType    : "json",
-            success: function(data){
-              $('#i_ruangan_').empty();
-              $('#i_ruangan_').append('<option value="0"></option>');
+	// $( "#cabang" ).change(function() {
+	//   var cabang_id = $('#cabang').val();
+ //          // alert(item_id);
+ //          $.ajax({
+ //            type        : "post",
+ //            url         : "transaction.php?page=get_ruangan_by",
+ //            data        : {branch_id:cabang_id},
+ //            dataType    : "json",
+ //            success: function(data){
+ //              $('#i_ruangan_').empty();
+ //              $('#i_ruangan_').append('<option value="0"></option>');
 
-              for (var i = 0; i < data.length; i++) {
-                if (data[i].available) {
-                $('#i_ruangan_').append('<option value="'+data[i].ruangan_id+'">'+data[i].ruangan_name+'</option>');	
-            }else{
+ //              for (var i = 0; i < data.length; i++) {
+ //                if (data[i].available) {
+ //                $('#i_ruangan_').append('<option value="'+data[i].ruangan_id+'">'+data[i].ruangan_name+'</option>');	
+ //            }else{
 
-                $('#i_ruangan_').append('<option disabled="disabled" value="'+data[i].ruangan_id+'">'+data[i].ruangan_name+'</option>');
-            }
-              }
+ //                $('#i_ruangan_').append('<option disabled="disabled" value="'+data[i].ruangan_id+'">'+data[i].ruangan_name+'</option>');
+ //            }
+ //              }
 
-            },
-            error: function(data)
-            {
-              console.log(data);
+ //            },
+ //            error: function(data)
+ //            {
+ //              console.log(data);
 
-              alert("error");
-            }
-          });
+ //              alert("error");
+ //            }
+ //          });
+	// });
+ 	
+ 	$(document).on('change', 'select', function(e) {
+    
+	    var id = ($(this).attr('id'));
+	    if (id.match(/i_ruangan.*/)) {
+		    alert(id);
+	    	
+	    }
+    
+    });
+
+
+$('select').change(function() {
+
+
+	  // var cabang_id = $('#cabang').val();
+   //        // alert(item_id);
+   //        $.ajax({
+   //          type        : "post",
+   //          url         : "transaction.php?page=get_ruangan_by",
+   //          data        : {branch_id:cabang_id},
+   //          dataType    : "json",
+   //          success: function(data){
+   //            $('#i_ruangan_').empty();
+   //            $('#i_ruangan_').append('<option value="0"></option>');
+
+   //            for (var i = 0; i < data.length; i++) {
+   //              if (data[i].available) {
+   //              $('#i_ruangan_').append('<option value="'+data[i].ruangan_id+'">'+data[i].ruangan_name+'</option>');	
+   //          }else{
+
+   //              $('#i_ruangan_').append('<option disabled="disabled" value="'+data[i].ruangan_id+'">'+data[i].ruangan_name+'</option>');
+   //          }
+   //            }
+
+   //          },
+   //          error: function(data)
+   //          {
+   //            console.log(data);
+
+   //            alert("error");
+   //          }
+   //        });
 	});
-
 	
 
 </script>
@@ -686,5 +827,9 @@ $(document).ready(function(){
             placeholder: "Please Select"
         });
     });
+
+    $("select").select2({
+            placeholder: "Please Select"
+        });
 
 </script>
